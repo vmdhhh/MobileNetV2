@@ -1,9 +1,7 @@
 import glob
 import os
-import sys
 
 import numpy as np
-import six.moves.urllib as urllib
 import tensorflow.compat.v1 as tf
 from matplotlib import pyplot as plt
 from PIL import Image
