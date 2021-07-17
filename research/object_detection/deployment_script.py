@@ -13,7 +13,7 @@ from object_detection.utils import ops as utils_ops
 from object_detection.utils import visualization_utils as vis_util
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
-current_dir = os.getcwd()
+current_dir = '../..'
 PATH_TO_CKPT = current_dir +'/research/training/fine_tuned_model'
 
 # List of the strings that is used to add correct label for each box.
@@ -21,11 +21,6 @@ PATH_TO_LABELS = current_dir +'/crosswalk_4_dataset/train/crosswalk_label_map.pb
 
 # If you want to test the code with your images, just add images files to the PATH_TO_TEST_IMAGES_DIR.
 PATH_TO_TEST_IMAGES_DIR =  current_dir+'/crosswalk_4_dataset/test'
-sample_img = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Crosswalk_New_York_City_0001.jpg/1200px-Crosswalk_New_York_City_0001.jpg'
-import urllib.request
-
-urllib.request.urlretrieve(sample_img, 
-                           PATH_TO_TEST_IMAGES_DIR + "crs.jpg")
 
 pb_fname = current_dir+'/research/training/fine_tuned_model/frozen_inference_graph.pb'
 assert os.path.isfile(pb_fname)
@@ -55,9 +50,6 @@ def load_image_into_numpy_array(image):
     (im_width, im_height) = image.size
     return np.array(image.getdata()).reshape(
         (im_height, im_width, 3)).astype(np.uint8)
-
-# Size, in inches, of the output images.
-IMAGE_SIZE = (12, 8)
 
 
 def run_inference_for_single_image(image, graph):
@@ -115,30 +107,32 @@ def run_inference_for_single_image(image, graph):
 
 #---------------------------------------------------------------------------------------
 
-
-for image_path in TEST_IMAGE_PATHS:
-  try:
-    image = Image.open(image_path)
-    print(image_path)
-    # the array based representation of the image will be used later in order to prepare the
-    # result image with boxes and labels on it.
-    image_np = load_image_into_numpy_array(image)
-    # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
-    image_np_expanded = np.expand_dims(image_np, axis=0)
-    # Actual detection.
-    output_dict = run_inference_for_single_image(image_np, detection_graph)
-    # Visualization of the results of a detection.
-    vis_util.visualize_boxes_and_labels_on_image_array(
-        image_np,
-        output_dict['detection_boxes'],
-        output_dict['detection_classes'],
-        output_dict['detection_scores'],
-        category_index,
-        instance_masks=output_dict.get('detection_masks'),
-        use_normalized_coordinates=True,
-        line_thickness=8)
-    plt.figure(figsize=IMAGE_SIZE)
-    plt.imshow(image_np)
-    plt.savefig("detected.png")
-  except Exception:
-    pass
+def detect(image_name):
+    try:
+        # Size, in inches, of the output images.
+        IMAGE_SIZE = (12, 8)
+        image = Image.open(image_name)
+        print(image_name)
+        # the array based representation of the image will be used later in order to prepare the
+        # result image with boxes and labels on it.
+        image_np = load_image_into_numpy_array(image)
+        # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+        image_np_expanded = np.expand_dims(image_np, axis=0)
+        # Actual detection.
+        output_dict = run_inference_for_single_image(image_np, detection_graph)
+        # Visualization of the results of a detection.
+        vis_util.visualize_boxes_and_labels_on_image_array(
+            image_np,
+            output_dict['detection_boxes'],
+            output_dict['detection_classes'],
+            output_dict['detection_scores'],
+            category_index,
+            instance_masks=output_dict.get('detection_masks'),
+            use_normalized_coordinates=True,
+            line_thickness=8)
+        plt.figure(figsize=IMAGE_SIZE)
+        plt.imshow(image_np)
+        plt.savefig(f"inf_images/{image_name}_inf.png")
+        return (f"inf_images/{image_name}_inf.png")
+    except Exception:
+        pass
