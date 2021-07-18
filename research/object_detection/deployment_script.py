@@ -15,17 +15,13 @@ current_dir = '../..'
 PATH_TO_CKPT = current_dir +'/research/training/fine_tuned_model'
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = current_dir +'/crosswalk_4_dataset/train/crosswalk_label_map.pbtxt'
+PATH_TO_LABELS = 'crosswalk_label_map.pbtxt'
 
 # If you want to test the code with your images, just add images files to the PATH_TO_TEST_IMAGES_DIR.
 PATH_TO_TEST_IMAGES_DIR =  current_dir+'/crosswalk_4_dataset/test'
 
-pb_fname = current_dir+'/research/training/fine_tuned_model/frozen_inference_graph.pb'
-assert os.path.isfile(pb_fname)
-assert os.path.isfile(PATH_TO_LABELS)
-TEST_IMAGE_PATHS = glob.glob(os.path.join(PATH_TO_TEST_IMAGES_DIR, "*.*"))
-assert len(TEST_IMAGE_PATHS) > 0, 'No image found in `{}`.'.format(PATH_TO_TEST_IMAGES_DIR)
-print(TEST_IMAGE_PATHS)
+pb_fname = 'frozen_inference_graph.pb'
+
 
 #--------------------------------------------------------------------------------------------------------
 PATH_TO_CKPT = pb_fname
