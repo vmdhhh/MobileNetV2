@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for google3.third_party.tensorflow_models.object_detection.core.batch_multiclass_nms."""
+"""Tests for google3.third_party.tensorflow_models.research.object_detection.core.batch_multiclass_nms."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -20,8 +20,8 @@ from absl.testing import parameterized
 import numpy as np
 from six.moves import range
 import tensorflow.compat.v1 as tf
-from object_detection.core import post_processing
-from object_detection.utils import test_case
+from research.object_detection.core import post_processing
+from research.object_detection.utils import test_case
 
 
 class BatchMulticlassNonMaxSuppressionTest(test_case.TestCase,

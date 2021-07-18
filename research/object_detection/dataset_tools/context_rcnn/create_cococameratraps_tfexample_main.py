@@ -41,7 +41,7 @@ import os
 import numpy as np
 import PIL.Image
 import tensorflow as tf
-from object_detection.utils import dataset_util
+from research.object_detection.utils import dataset_util
 
 try:
   import apache_beam as beam  # pylint:disable=g-import-not-at-top

@@ -1,4 +1,4 @@
-"""Tests for google3.third_party.tensorflow_models.object_detection.builders.target_assigner_builder."""
+"""Tests for google3.third_party.tensorflow_models.research.object_detection.builders.target_assigner_builder."""
 # Copyright 2017 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,9 +19,9 @@ import tensorflow.compat.v1 as tf
 from google.protobuf import text_format
 
 
-from object_detection.builders import target_assigner_builder
-from object_detection.core import target_assigner
-from object_detection.protos import target_assigner_pb2
+from research.object_detection.builders import target_assigner_builder
+from research.object_detection.core import target_assigner
+from research.object_detection.protos import target_assigner_pb2
 
 
 class TargetAssignerBuilderTest(tf.test.TestCase):

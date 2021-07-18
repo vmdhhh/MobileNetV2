@@ -40,7 +40,7 @@ segmentation task.
 We provide pre-defined configs which can be run as a
 [TF2 training pipeline](tf2_training_and_evaluation.md). Each of these
 configurations needs to be passed as the `pipeline_config_path` argument to the
-`object_detection/model_main_tf2.py` binary. Note that the `512x512` resolution
+`research.object_detection/model_main_tf2.py` binary. Note that the `512x512` resolution
 models require a TPU `v3-32` and the `1024x1024` resolution models require a TPU
 `v3-128` to train. The configs can be found in the [configs/tf2](../configs/tf2)
 directory. In the table below `X->Y` indicates that we train with masks from `X`
@@ -74,7 +74,7 @@ Resolution | Mask head     | Config name                                | Mask m
 
 ## Pre-trained models
 
-*   [COCO Checkpoint](http://download.tensorflow.org/models/object_detection/tf2/20210329/deepmac_1024x1024_coco17.tar.gz) -
+*   [COCO Checkpoint](http://download.tensorflow.org/models/research.object_detection/tf2/20210329/deepmac_1024x1024_coco17.tar.gz) -
     Takes as input Image + Boxes and produces per-box instance masks as output.
 
 ## See also

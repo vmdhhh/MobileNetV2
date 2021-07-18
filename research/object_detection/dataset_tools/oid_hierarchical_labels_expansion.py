@@ -25,7 +25,7 @@ fields
 Note, that LabelName is the only field used for expansion.
 
 Example usage:
-python models/research/object_detection/dataset_tools/\
+python models/research/research.object_detection/dataset_tools/\
 oid_hierarchical_labels_expansion.py \
 --json_hierarchy_file=<path to JSON hierarchy> \
 --input_annotations=<input csv file> \

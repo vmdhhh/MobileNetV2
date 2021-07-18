@@ -106,8 +106,8 @@ python export_inference_graph.py \
 """
 import tensorflow.compat.v1 as tf
 from google.protobuf import text_format
-from object_detection import exporter
-from object_detection.protos import pipeline_pb2
+from research.object_detection import exporter
+from research.object_detection.protos import pipeline_pb2
 
 flags = tf.app.flags
 

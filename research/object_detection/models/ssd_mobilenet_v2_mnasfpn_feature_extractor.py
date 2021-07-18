@@ -25,9 +25,9 @@ from six.moves import range
 import tensorflow.compat.v1 as tf
 
 import tf_slim as slim
-from object_detection.meta_architectures import ssd_meta_arch
-from object_detection.utils import ops
-from object_detection.utils import shape_utils
+from research.object_detection.meta_architectures import ssd_meta_arch
+from research.object_detection.utils import ops
+from research.object_detection.utils import shape_utils
 from nets.mobilenet import mobilenet
 from nets.mobilenet import mobilenet_v2
 

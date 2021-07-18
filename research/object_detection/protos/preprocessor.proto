@@ -1,9 +1,9 @@
 syntax = "proto2";
 
-package object_detection.protos;
+package research.object_detection.protos;
 
 // Message for defining a preprocessing operation on input data.
-// See: //third_party/tensorflow_models/object_detection/core/preprocessor.py
+// See: //third_party/tensorflow_models/research.object_detection/core/preprocessor.py
 // Next ID: 41
 message PreprocessingStep {
   oneof preprocessing_step {

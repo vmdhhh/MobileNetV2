@@ -13,16 +13,16 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.core.bipartite_matcher."""
+"""Tests for research.object_detection.core.bipartite_matcher."""
 import unittest
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from object_detection.utils import test_case
-from object_detection.utils import tf_version
+from research.object_detection.utils import test_case
+from research.object_detection.utils import tf_version
 
 if tf_version.is_tf1():
-  from object_detection.matchers import bipartite_matcher  # pylint: disable=g-import-not-at-top
+  from research.object_detection.matchers import bipartite_matcher  # pylint: disable=g-import-not-at-top
 
 
 @unittest.skipIf(tf_version.is_tf2(), 'Skipping TF1.X only test.')

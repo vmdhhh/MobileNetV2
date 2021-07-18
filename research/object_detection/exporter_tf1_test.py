@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.export_inference_graph."""
+"""Tests for research.object_detection.export_inference_graph."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -27,15 +27,15 @@ from google.protobuf import text_format
 from tensorflow.python.framework import dtypes
 from tensorflow.python.ops import array_ops
 from tensorflow.python.tools import strip_unused_lib
-from object_detection import exporter
-from object_detection.builders import graph_rewriter_builder
-from object_detection.builders import model_builder
-from object_detection.core import model
-from object_detection.protos import graph_rewriter_pb2
-from object_detection.protos import pipeline_pb2
-from object_detection.utils import ops
-from object_detection.utils import tf_version
-from object_detection.utils import variables_helper
+from research.object_detection import exporter
+from research.object_detection.builders import graph_rewriter_builder
+from research.object_detection.builders import model_builder
+from research.object_detection.core import model
+from research.object_detection.protos import graph_rewriter_pb2
+from research.object_detection.protos import pipeline_pb2
+from research.object_detection.utils import ops
+from research.object_detection.utils import tf_version
+from research.object_detection.utils import variables_helper
 
 if six.PY2:
   import mock  # pylint: disable=g-import-not-at-top

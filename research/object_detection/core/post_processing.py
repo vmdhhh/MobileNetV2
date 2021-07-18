@@ -24,11 +24,11 @@ from six.moves import range
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 
-from object_detection.core import box_list
-from object_detection.core import box_list_ops
-from object_detection.core import keypoint_ops
-from object_detection.core import standard_fields as fields
-from object_detection.utils import shape_utils
+from research.object_detection.core import box_list
+from research.object_detection.core import box_list_ops
+from research.object_detection.core import keypoint_ops
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.utils import shape_utils
 
 _NMS_TILE_SIZE = 512
 

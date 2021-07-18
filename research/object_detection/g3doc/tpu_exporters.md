@@ -27,7 +27,7 @@ and need to correctly set:
 The model can be exported with:
 
 ```
-python object_detection/tpu_exporters/export_saved_model_tpu.py \
+python research.object_detection/tpu_exporters/export_saved_model_tpu.py \
     --pipeline_config_file=<PIPELINE_CONFIG> \
     --ckpt_path=<CHECKPOINT> \
     --export_dir=<EXPORT_DIR> \

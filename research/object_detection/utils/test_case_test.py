@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for google3.third_party.tensorflow_models.object_detection.utils.test_case."""
+"""Tests for google3.third_party.tensorflow_models.research.object_detection.utils.test_case."""
 
 import numpy as np
 import tensorflow.compat.v1 as tf
-from object_detection.utils import test_case
+from research.object_detection.utils import test_case
 
 
 class TestCaseTest(test_case.TestCase):

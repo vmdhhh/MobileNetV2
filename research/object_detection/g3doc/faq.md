@@ -12,7 +12,7 @@ bounding boxes, the excess boxes will be clipped.
 A: This BackupHandler (tf_slim.tfexample_decoder.BackupHandler) was
 introduced in tensorflow 1.5.0 so runing with earlier versions may cause this
 issue. It now has been replaced by
-object_detection.data_decoders.tf_example_decoder.BackupHandler. Whoever sees
+research.object_detection.data_decoders.tf_example_decoder.BackupHandler. Whoever sees
 this issue should be able to resolve it by syncing your fork to HEAD.
 Same for LookupTensor.
 

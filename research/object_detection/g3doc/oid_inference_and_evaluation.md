@@ -4,7 +4,7 @@ This page presents a tutorial for running object detector inference and
 evaluation measure computations on the [Open Images
 dataset](https://github.com/openimages/dataset), using tools from the
 [TensorFlow Object Detection
-API](https://github.com/tensorflow/models/tree/master/research/object_detection).
+API](https://github.com/tensorflow/models/tree/master/research/research.object_detection).
 It shows how to download the images and annotations for the validation and test
 sets of Open Images; how to package the downloaded data in a format understood
 by the Object Detection API; where to find a trained object detector model for
@@ -92,10 +92,10 @@ SPLIT=validation  # Set SPLIT to "test" to create TFRecords for the test split
 mkdir ${SPLIT}_tfrecords
 
 PYTHONPATH=$PYTHONPATH:$(readlink -f ..) \
-python -m object_detection/dataset_tools/create_oid_tf_record \
+python -m research.object_detection/dataset_tools/create_oid_tf_record \
   --input_box_annotations_csv 2017_07/$SPLIT/annotations-human-bbox.csv \
   --input_images_directory raw_images_${SPLIT} \
-  --input_label_map ../object_detection/data/oid_bbox_trainable_label_map.pbtxt \
+  --input_label_map ../research.object_detection/data/oid_bbox_trainable_label_map.pbtxt \
   --output_tf_record_path_prefix ${SPLIT}_tfrecords/$SPLIT.tfrecord \
   --num_shards=100
 ```
@@ -120,7 +120,7 @@ the model, such as its architecture and how it was trained, is available in the
 
 ```bash
 # From tensorflow/models/research/oid
-wget http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_resnet_v2_atrous_oid_14_10_2017.tar.gz
+wget http://download.tensorflow.org/models/research.object_detection/faster_rcnn_inception_resnet_v2_atrous_oid_14_10_2017.tar.gz
 tar -zxvf faster_rcnn_inception_resnet_v2_atrous_oid_14_10_2017.tar.gz
 ```
 
@@ -133,7 +133,7 @@ SPLIT=validation  # or test
 TF_RECORD_FILES=$(ls -1 ${SPLIT}_tfrecords/* | tr '\n' ',')
 
 PYTHONPATH=$PYTHONPATH:$(readlink -f ..) \
-python -m object_detection/inference/infer_detections \
+python -m research.object_detection/inference/infer_detections \
   --input_tfrecord_paths=$TF_RECORD_FILES \
   --output_tfrecord_path=${SPLIT}_detections.tfrecord-00000-of-00001 \
   --inference_graph=faster_rcnn_inception_resnet_v2_atrous_oid/frozen_inference_graph.pb \
@@ -186,7 +186,7 @@ for gpu_index in $(seq 0 $(($NUM_GPUS-1))); do
   TF_RECORD_FILES=$(seq -s, -f "${SPLIT}_tfrecords/${SPLIT}.tfrecord-%05.0f-of-$(printf '%05d' $NUM_SHARDS)" $start_shard $end_shard)
   tmux_start ${gpu_index} \
   PYTHONPATH=$PYTHONPATH:$(readlink -f ..) CUDA_VISIBLE_DEVICES=$gpu_index \
-  python -m object_detection/inference/infer_detections \
+  python -m research.object_detection/inference/infer_detections \
     --input_tfrecord_paths=$TF_RECORD_FILES \
     --output_tfrecord_path=${SPLIT}_detections.tfrecord-$(printf "%05d" $gpu_index)-of-$(printf "%05d" $NUM_GPUS) \
     --inference_graph=faster_rcnn_inception_resnet_v2_atrous_oid/frozen_inference_graph.pb \
@@ -211,7 +211,7 @@ NUM_SHARDS=1  # Set to NUM_GPUS if using the parallel evaluation script above
 mkdir -p ${SPLIT}_eval_metrics
 
 echo "
-label_map_path: '../object_detection/data/oid_bbox_trainable_label_map.pbtxt'
+label_map_path: '../research.object_detection/data/oid_bbox_trainable_label_map.pbtxt'
 tf_record_input_reader: { input_path: '${SPLIT}_detections.tfrecord@${NUM_SHARDS}' }
 " > ${SPLIT}_eval_metrics/${SPLIT}_input_config.pbtxt
 
@@ -227,15 +227,15 @@ And then run:
 SPLIT=validation  # or test
 
 PYTHONPATH=$PYTHONPATH:$(readlink -f ..) \
-python -m object_detection/metrics/offline_eval_map_corloc \
+python -m research.object_detection/metrics/offline_eval_map_corloc \
   --eval_dir=${SPLIT}_eval_metrics \
   --eval_config_path=${SPLIT}_eval_metrics/${SPLIT}_eval_config.pbtxt \
   --input_config_path=${SPLIT}_eval_metrics/${SPLIT}_input_config.pbtxt
 ```
 
-The first configuration file contains an `object_detection.protos.InputReader`
+The first configuration file contains an `research.object_detection.protos.InputReader`
 message that describes the location of the necessary input files. The second
-file contains an `object_detection.protos.EvalConfig` message that describes the
+file contains an `research.object_detection.protos.EvalConfig` message that describes the
 evaluation metric. For more information about these protos see the corresponding
 source files.
 

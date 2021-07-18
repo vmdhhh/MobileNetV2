@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.utils.object_detection_evaluation."""
+"""Tests for research.object_detection.utils.research.object_detection_evaluation."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -25,10 +25,10 @@ import numpy as np
 import six
 from six.moves import range
 import tensorflow.compat.v1 as tf
-from object_detection import eval_util
-from object_detection.core import standard_fields
-from object_detection.utils import object_detection_evaluation
-from object_detection.utils import tf_version
+from research.object_detection import eval_util
+from research.object_detection.core import standard_fields
+from research.object_detection.utils import research.object_detection_evaluation
+from research.object_detection.utils import tf_version
 
 
 class OpenImagesV2EvaluationTest(tf.test.TestCase):
@@ -45,7 +45,7 @@ class OpenImagesV2EvaluationTest(tf.test.TestCase):
         'name': 'elephant'
     }]
 
-    oiv2_evaluator = object_detection_evaluation.OpenImagesDetectionEvaluator(
+    oiv2_evaluator = research.object_detection_evaluation.OpenImagesDetectionEvaluator(
         categories)
     image_key1 = 'img1'
     groundtruth_boxes1 = np.array(
@@ -123,7 +123,7 @@ class OpenImagesChallengeEvaluatorTest(tf.test.TestCase):
         'name': 'elephant'
     }]
     oivchallenge_evaluator = (
-        object_detection_evaluation.OpenImagesChallengeEvaluator(
+        research.object_detection_evaluation.OpenImagesChallengeEvaluator(
             categories, evaluate_masks=False, group_of_weight=0.5))
 
     image_key = 'img1'
@@ -235,7 +235,7 @@ class OpenImagesChallengeEvaluatorTest(tf.test.TestCase):
   def test_returns_correct_instance_segm_metric_values(self):
     categories = [{'id': 1, 'name': 'cat'}, {'id': 2, 'name': 'dog'}]
     oivchallenge_evaluator = (
-        object_detection_evaluation.OpenImagesChallengeEvaluator(
+        research.object_detection_evaluation.OpenImagesChallengeEvaluator(
             categories, evaluate_masks=True))
 
     image_key = 'img1'
@@ -338,7 +338,7 @@ class PascalEvaluationTest(tf.test.TestCase):
                   {'id': 2, 'name': 'dog'},
                   {'id': 3, 'name': 'elephant'}]
     #  Add groundtruth
-    pascal_evaluator = object_detection_evaluation.PascalDetectionEvaluator(
+    pascal_evaluator = research.object_detection_evaluation.PascalDetectionEvaluator(
         categories)
     image_key1 = 'img1'
     groundtruth_boxes1 = np.array([[0, 0, 1, 1], [0, 0, 2, 2], [0, 0, 3, 3]],
@@ -405,7 +405,7 @@ class PascalEvaluationTest(tf.test.TestCase):
                   {'id': 3, 'name': 'elephant'}]
     #  Add groundtruth
     pascal_evaluator = (
-        object_detection_evaluation.PascalInstanceSegmentationEvaluator(
+        research.object_detection_evaluation.PascalInstanceSegmentationEvaluator(
             categories))
     image_key1 = 'img1'
     groundtruth_boxes1 = np.array([[0, 0, 1, 1], [0, 0, 2, 2], [0, 0, 3, 3]],
@@ -535,7 +535,7 @@ class WeightedPascalEvaluationTest(tf.test.TestCase):
   def create_and_add_common_ground_truth(self):
     #  Add groundtruth
     self.wp_eval = (
-        object_detection_evaluation.WeightedPascalDetectionEvaluator(
+        research.object_detection_evaluation.WeightedPascalDetectionEvaluator(
             self.categories))
 
     image_key1 = 'img1'
@@ -653,7 +653,7 @@ class PrecisionAtRecallEvaluationTest(tf.test.TestCase):
   def create_and_add_common_ground_truth(self):
     #  Add groundtruth
     self.wp_eval = (
-        object_detection_evaluation.PrecisionAtRecallDetectionEvaluator(
+        research.object_detection_evaluation.PrecisionAtRecallDetectionEvaluator(
             self.categories, recall_lower_bound=0.0, recall_upper_bound=0.5))
 
     image_key1 = 'img1'
@@ -766,7 +766,7 @@ class ObjectDetectionEvaluationTest(tf.test.TestCase):
 
   def setUp(self):
     num_groundtruth_classes = 3
-    self.od_eval = object_detection_evaluation.ObjectDetectionEvaluation(
+    self.od_eval = research.object_detection_evaluation.ObjectDetectionEvaluation(
         num_groundtruth_classes)
 
     image_key1 = 'img1'
@@ -802,7 +802,7 @@ class ObjectDetectionEvaluationTest(tf.test.TestCase):
 
   def test_value_error_on_zero_classes(self):
     with self.assertRaises(ValueError):
-      object_detection_evaluation.ObjectDetectionEvaluation(
+      research.object_detection_evaluation.ObjectDetectionEvaluation(
           num_groundtruth_classes=0)
 
   def test_add_single_ground_truth_image_info(self):
@@ -877,7 +877,7 @@ class ObjectDetectionEvaluationTest(tf.test.TestCase):
     # Test that if initial state is merged, the results of the evaluation are
     # the same.
     od_eval_state = self.od_eval.get_internal_state()
-    copy_od_eval = object_detection_evaluation.ObjectDetectionEvaluation(
+    copy_od_eval = research.object_detection_evaluation.ObjectDetectionEvaluation(
         self.od_eval.num_class)
     copy_od_eval.merge_internal_state(od_eval_state)
 
@@ -917,7 +917,7 @@ class ObjectDetectionEvaluatorTest(tf.test.TestCase, parameterized.TestCase):
         'id': 3,
         'name': 'cat'
     }]
-    self.od_eval = object_detection_evaluation.ObjectDetectionEvaluator(
+    self.od_eval = research.object_detection_evaluation.ObjectDetectionEvaluator(
         categories=self.categories)
 
   def _make_evaluation_dict(self,

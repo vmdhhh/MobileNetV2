@@ -18,12 +18,12 @@ This executable evaluates precomputed detections produced by a detection
 model and writes the evaluation results into csv file metrics.csv, stored
 in the directory, specified by --eval_dir.
 
-The evaluation metrics set is supplied in object_detection.protos.EvalConfig
+The evaluation metrics set is supplied in research.object_detection.protos.EvalConfig
 in metrics_set field.
 Currently two set of metrics are supported:
 - pascal_voc_metrics: standard PASCAL VOC 2007 metric
 - open_images_detection_metrics: Open Image V2 metric
-All other field of object_detection.protos.EvalConfig are ignored.
+All other field of research.object_detection.protos.EvalConfig are ignored.
 
 Example usage:
     ./compute_metrics \
@@ -36,11 +36,11 @@ import os
 import re
 import tensorflow.compat.v1 as tf
 
-from object_detection import eval_util
-from object_detection.core import standard_fields
-from object_detection.metrics import tf_example_parser
-from object_detection.utils import config_util
-from object_detection.utils import label_map_util
+from research.object_detection import eval_util
+from research.object_detection.core import standard_fields
+from research.object_detection.metrics import tf_example_parser
+from research.object_detection.utils import config_util
+from research.object_detection.utils import label_map_util
 
 flags = tf.app.flags
 tf.logging.set_verbosity(tf.logging.INFO)
@@ -78,9 +78,9 @@ def read_data_and_evaluate(input_config, eval_config):
 
   Args:
     input_config: input config proto of type
-      object_detection.protos.InputReader.
+      research.object_detection.protos.InputReader.
     eval_config: evaluation config proto of type
-      object_detection.protos.EvalConfig.
+      research.object_detection.protos.EvalConfig.
 
   Returns:
     Evaluated detections metrics.
@@ -94,10 +94,10 @@ def read_data_and_evaluate(input_config, eval_config):
     categories = label_map_util.create_categories_from_labelmap(
         input_config.label_map_path)
 
-    object_detection_evaluators = eval_util.get_evaluators(
+    research.object_detection_evaluators = eval_util.get_evaluators(
         eval_config, categories)
     # Support a single evaluator
-    object_detection_evaluator = object_detection_evaluators[0]
+    research.object_detection_evaluator = research.object_detection_evaluators[0]
 
     skipped_images = 0
     processed_images = 0
@@ -117,17 +117,17 @@ def read_data_and_evaluate(input_config, eval_config):
         decoded_dict = data_parser.parse(example)
 
         if decoded_dict:
-          object_detection_evaluator.add_single_ground_truth_image_info(
+          research.object_detection_evaluator.add_single_ground_truth_image_info(
               decoded_dict[standard_fields.DetectionResultFields.key],
               decoded_dict)
-          object_detection_evaluator.add_single_detected_image_info(
+          research.object_detection_evaluator.add_single_detected_image_info(
               decoded_dict[standard_fields.DetectionResultFields.key],
               decoded_dict)
         else:
           skipped_images += 1
           tf.logging.info('Skipped images: {0}'.format(skipped_images))
 
-    return object_detection_evaluator.evaluate()
+    return research.object_detection_evaluator.evaluate()
 
   raise ValueError('Unsupported input_reader_config.')
 

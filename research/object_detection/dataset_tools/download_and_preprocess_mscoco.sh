@@ -22,7 +22,7 @@
 # http://cocodataset.org/#overview for an overview of the dataset.
 #
 # usage:
-#  bash object_detection/dataset_tools/download_and_preprocess_mscoco.sh \
+#  bash research.object_detection/dataset_tools/download_and_preprocess_mscoco.sh \
 #    /tmp/mscoco
 set -e
 
@@ -93,7 +93,7 @@ TESTDEV_ANNOTATIONS_FILE="${SCRATCH_DIR}/annotations/image_info_test-dev2017.jso
 
 # Build TFRecords of the image data.
 cd "${CURRENT_DIR}"
-python object_detection/dataset_tools/create_coco_tf_record.py \
+python research.object_detection/dataset_tools/create_coco_tf_record.py \
   --logtostderr \
   --include_masks \
   --train_image_dir="${TRAIN_IMAGE_DIR}" \

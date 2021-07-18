@@ -1,4 +1,4 @@
-"""Tests for google3.third_party.tensorflow_models.object_detection.meta_architectures.deepmac_meta_arch."""
+"""Tests for google3.third_party.tensorflow_models.research.object_detection.meta_architectures.deepmac_meta_arch."""
 
 import functools
 import unittest
@@ -7,11 +7,11 @@ from absl.testing import parameterized
 import numpy as np
 import tensorflow as tf
 
-from object_detection.core import losses
-from object_detection.core import preprocessor
-from object_detection.meta_architectures import center_net_meta_arch
-from object_detection.meta_architectures import deepmac_meta_arch
-from object_detection.utils import tf_version
+from research.object_detection.core import losses
+from research.object_detection.core import preprocessor
+from research.object_detection.meta_architectures import center_net_meta_arch
+from research.object_detection.meta_architectures import deepmac_meta_arch
+from research.object_detection.utils import tf_version
 
 
 class DummyFeatureExtractor(center_net_meta_arch.CenterNetFeatureExtractor):
@@ -105,7 +105,7 @@ def build_meta_arch(predict_full_resolution_masks=False, use_dice_loss=False):
       roi_jitter_mode='random'
   )
 
-  object_detection_params = center_net_meta_arch.ObjectDetectionParams(
+  research.object_detection_params = center_net_meta_arch.ObjectDetectionParams(
       localization_loss=losses.L1LocalizationLoss(),
       offset_loss_weight=1.0,
       scale_loss_weight=0.1
@@ -118,7 +118,7 @@ def build_meta_arch(predict_full_resolution_masks=False, use_dice_loss=False):
       feature_extractor=feature_extractor,
       object_center_params=object_center_params,
       deepmac_params=deepmac_params,
-      object_detection_params=object_detection_params,
+      research.object_detection_params=research.object_detection_params,
       image_resizer_fn=image_resizer_fn)
 
 

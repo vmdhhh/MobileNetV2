@@ -17,7 +17,7 @@
 # Script to download pycocotools and make package for CMLE jobs.
 #
 # usage:
-#  bash object_detection/dataset_tools/create_pycocotools_package.sh \
+#  bash research.object_detection/dataset_tools/create_pycocotools_package.sh \
 #    /tmp/pycocotools
 set -e
 

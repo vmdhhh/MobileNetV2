@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for tensorflow_models.object_detection.metrics.calibration_evaluation."""  # pylint: disable=line-too-long
+"""Tests for tensorflow_models.research.object_detection.metrics.calibration_evaluation."""  # pylint: disable=line-too-long
 
 from __future__ import absolute_import
 from __future__ import division
@@ -20,9 +20,9 @@ from __future__ import print_function
 
 import unittest
 import tensorflow.compat.v1 as tf
-from object_detection.core import standard_fields
-from object_detection.metrics import calibration_evaluation
-from object_detection.utils import tf_version
+from research.object_detection.core import standard_fields
+from research.object_detection.metrics import calibration_evaluation
+from research.object_detection.utils import tf_version
 
 
 def _get_categories_list():

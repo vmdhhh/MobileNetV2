@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.meta_architectures.ssd_meta_arch."""
+"""Tests for research.object_detection.meta_architectures.ssd_meta_arch."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -27,10 +27,10 @@ import six
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from object_detection.meta_architectures import ssd_meta_arch
-from object_detection.meta_architectures import ssd_meta_arch_test_lib
-from object_detection.protos import model_pb2
-from object_detection.utils import test_utils
+from research.object_detection.meta_architectures import ssd_meta_arch
+from research.object_detection.meta_architectures import ssd_meta_arch_test_lib
+from research.object_detection.protos import model_pb2
+from research.object_detection.utils import test_utils
 
 # pylint: disable=g-import-not-at-top
 try:

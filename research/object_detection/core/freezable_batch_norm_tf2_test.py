@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.core.freezable_batch_norm."""
+"""Tests for research.object_detection.core.freezable_batch_norm."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -26,12 +26,12 @@ from six.moves import zip
 import tensorflow as tf
 
 
-from object_detection.core import freezable_batch_norm
-from object_detection.utils import tf_version
+from research.object_detection.core import freezable_batch_norm
+from research.object_detection.utils import tf_version
 
 # pylint: disable=g-import-not-at-top
 if tf_version.is_tf2():
-  from object_detection.core import freezable_sync_batch_norm
+  from research.object_detection.core import freezable_sync_batch_norm
 # pylint: enable=g-import-not-at-top
 
 

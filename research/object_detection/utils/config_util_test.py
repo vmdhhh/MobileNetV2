@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for object_detection.utils.config_util."""
+"""Tests for research.object_detection.utils.config_util."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -25,14 +25,14 @@ import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
 
-from object_detection.protos import eval_pb2
-from object_detection.protos import image_resizer_pb2
-from object_detection.protos import input_reader_pb2
-from object_detection.protos import model_pb2
-from object_detection.protos import pipeline_pb2
-from object_detection.protos import train_pb2
-from object_detection.utils import config_util
-from object_detection.utils import tf_version
+from research.object_detection.protos import eval_pb2
+from research.object_detection.protos import image_resizer_pb2
+from research.object_detection.protos import input_reader_pb2
+from research.object_detection.protos import model_pb2
+from research.object_detection.protos import pipeline_pb2
+from research.object_detection.protos import train_pb2
+from research.object_detection.utils import config_util
+from research.object_detection.utils import tf_version
 
 # pylint: disable=g-import-not-at-top
 try:

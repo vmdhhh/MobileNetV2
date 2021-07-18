@@ -27,10 +27,10 @@ from __future__ import print_function
 import numpy as np
 from six.moves import range
 
-from object_detection.utils import np_box_list
-from object_detection.utils import np_box_list_ops
-from object_detection.utils import np_box_mask_list
-from object_detection.utils import np_box_mask_list_ops
+from research.object_detection.utils import np_box_list
+from research.object_detection.utils import np_box_list_ops
+from research.object_detection.utils import np_box_mask_list
+from research.object_detection.utils import np_box_mask_list_ops
 
 
 class PerImageEvaluation(object):
@@ -58,7 +58,7 @@ class PerImageEvaluation(object):
     self.num_groundtruth_classes = num_groundtruth_classes
     self.group_of_weight = group_of_weight
 
-  def compute_object_detection_metrics(self,
+  def compute_research.object_detection_metrics(self,
                                        detected_boxes,
                                        detected_scores,
                                        detected_class_labels,

@@ -18,8 +18,8 @@ from absl.testing import parameterized
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from object_detection.utils import target_assigner_utils as ta_utils
-from object_detection.utils import test_case
+from research.object_detection.utils import target_assigner_utils as ta_utils
+from research.object_detection.utils import test_case
 
 
 class TargetUtilTest(parameterized.TestCase, test_case.TestCase):

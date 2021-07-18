@@ -26,9 +26,9 @@ import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
 
-from object_detection.builders import optimizer_builder
-from object_detection.protos import optimizer_pb2
-from object_detection.utils import tf_version
+from research.object_detection.builders import optimizer_builder
+from research.object_detection.protos import optimizer_pb2
+from research.object_detection.utils import tf_version
 
 # pylint: disable=g-import-not-at-top
 if tf_version.is_tf1():

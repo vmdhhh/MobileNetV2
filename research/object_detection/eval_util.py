@@ -28,24 +28,24 @@ import tensorflow.compat.v1 as tf
 
 import tf_slim as slim
 
-from object_detection.core import box_list
-from object_detection.core import box_list_ops
-from object_detection.core import keypoint_ops
-from object_detection.core import standard_fields as fields
-from object_detection.metrics import coco_evaluation
-from object_detection.metrics import lvis_evaluation
-from object_detection.protos import eval_pb2
-from object_detection.utils import label_map_util
-from object_detection.utils import object_detection_evaluation
-from object_detection.utils import ops
-from object_detection.utils import shape_utils
-from object_detection.utils import visualization_utils as vis_utils
+from research.object_detection.core import box_list
+from research.object_detection.core import box_list_ops
+from research.object_detection.core import keypoint_ops
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.metrics import coco_evaluation
+from research.object_detection.metrics import lvis_evaluation
+from research.object_detection.protos import eval_pb2
+from research.object_detection.utils import label_map_util
+from research.object_detection.utils import research.object_detection_evaluation
+from research.object_detection.utils import ops
+from research.object_detection.utils import shape_utils
+from research.object_detection.utils import visualization_utils as vis_utils
 
 EVAL_KEYPOINT_METRIC = 'coco_keypoint_metrics'
 
 # A dictionary of metric names to classes that implement the metric. The classes
 # in the dictionary must implement
-# utils.object_detection_evaluation.DetectionEvaluator interface.
+# utils.research.object_detection_evaluation.DetectionEvaluator interface.
 EVAL_METRICS_CLASS_DICT = {
     'coco_detection_metrics':
         coco_evaluation.CocoDetectionEvaluator,
@@ -58,22 +58,22 @@ EVAL_METRICS_CLASS_DICT = {
     'lvis_mask_metrics':
         lvis_evaluation.LVISMaskEvaluator,
     'oid_challenge_detection_metrics':
-        object_detection_evaluation.OpenImagesDetectionChallengeEvaluator,
+        research.object_detection_evaluation.OpenImagesDetectionChallengeEvaluator,
     'oid_challenge_segmentation_metrics':
-        object_detection_evaluation
+        research.object_detection_evaluation
         .OpenImagesInstanceSegmentationChallengeEvaluator,
     'pascal_voc_detection_metrics':
-        object_detection_evaluation.PascalDetectionEvaluator,
+        research.object_detection_evaluation.PascalDetectionEvaluator,
     'weighted_pascal_voc_detection_metrics':
-        object_detection_evaluation.WeightedPascalDetectionEvaluator,
+        research.object_detection_evaluation.WeightedPascalDetectionEvaluator,
     'precision_at_recall_detection_metrics':
-        object_detection_evaluation.PrecisionAtRecallDetectionEvaluator,
+        research.object_detection_evaluation.PrecisionAtRecallDetectionEvaluator,
     'pascal_voc_instance_segmentation_metrics':
-        object_detection_evaluation.PascalInstanceSegmentationEvaluator,
+        research.object_detection_evaluation.PascalInstanceSegmentationEvaluator,
     'weighted_pascal_voc_instance_segmentation_metrics':
-        object_detection_evaluation.WeightedPascalInstanceSegmentationEvaluator,
+        research.object_detection_evaluation.WeightedPascalInstanceSegmentationEvaluator,
     'oid_V2_detection_metrics':
-        object_detection_evaluation.OpenImagesDetectionEvaluator,
+        research.object_detection_evaluation.OpenImagesDetectionEvaluator,
 }
 
 EVAL_DEFAULT_METRIC = 'coco_detection_metrics'

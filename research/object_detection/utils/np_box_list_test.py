@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.utils.np_box_list_test."""
+"""Tests for research.object_detection.utils.np_box_list_test."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -22,7 +22,7 @@ from __future__ import print_function
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from object_detection.utils import np_box_list
+from research.object_detection.utils import np_box_list
 
 
 class BoxListTest(tf.test.TestCase):

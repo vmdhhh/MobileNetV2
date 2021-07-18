@@ -20,14 +20,14 @@ with the assumption that the bounding box class label will match the image-level
 class label in the tf.Example.
 
 Steps to generate a detection dataset:
-1. Use object_detection/export_inference_graph.py to get a `saved_model` for
+1. Use research.object_detection/export_inference_graph.py to get a `saved_model` for
   inference. The input node must accept a tf.Example proto.
 2. Run this tool with `saved_model` from step 1 and an TFRecord of tf.Example
   protos containing images for inference.
 
 Example Usage:
 --------------
-python tensorflow_models/object_detection/export_inference_graph.py \
+python tensorflow_models/research.object_detection/export_inference_graph.py \
     --alsologtostderr \
     --input_type tf_example \
     --pipeline_config_path path/to/detection_model.config \

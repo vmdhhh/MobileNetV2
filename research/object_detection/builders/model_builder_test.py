@@ -13,19 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for object_detection.models.model_builder."""
+"""Tests for research.object_detection.models.model_builder."""
 
 from absl.testing import parameterized
 
 from google.protobuf import text_format
-from object_detection.builders import model_builder
-from object_detection.meta_architectures import faster_rcnn_meta_arch
-from object_detection.meta_architectures import rfcn_meta_arch
-from object_detection.meta_architectures import ssd_meta_arch
-from object_detection.protos import hyperparams_pb2
-from object_detection.protos import losses_pb2
-from object_detection.protos import model_pb2
-from object_detection.utils import test_case
+from research.object_detection.builders import model_builder
+from research.object_detection.meta_architectures import faster_rcnn_meta_arch
+from research.object_detection.meta_architectures import rfcn_meta_arch
+from research.object_detection.meta_architectures import ssd_meta_arch
+from research.object_detection.protos import hyperparams_pb2
+from research.object_detection.protos import losses_pb2
+from research.object_detection.protos import model_pb2
+from research.object_detection.utils import test_case
 
 
 class ModelBuilderTest(test_case.TestCase, parameterized.TestCase):

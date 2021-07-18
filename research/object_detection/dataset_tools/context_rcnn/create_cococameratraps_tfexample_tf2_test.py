@@ -26,10 +26,10 @@ import numpy as np
 
 from PIL import Image
 import tensorflow as tf
-from object_detection.utils import tf_version
+from research.object_detection.utils import tf_version
 
 if tf_version.is_tf2():
-  from object_detection.dataset_tools.context_rcnn import create_cococameratraps_tfexample_main  # pylint:disable=g-import-not-at-top
+  from research.object_detection.dataset_tools.context_rcnn import create_cococameratraps_tfexample_main  # pylint:disable=g-import-not-at-top
 
 try:
   import apache_beam as beam  # pylint:disable=g-import-not-at-top

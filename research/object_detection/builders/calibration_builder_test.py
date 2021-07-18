@@ -23,9 +23,9 @@ import numpy as np
 from scipy import interpolate
 from six.moves import zip
 import tensorflow.compat.v1 as tf
-from object_detection.builders import calibration_builder
-from object_detection.protos import calibration_pb2
-from object_detection.utils import test_case
+from research.object_detection.builders import calibration_builder
+from research.object_detection.protos import calibration_pb2
+from research.object_detection.utils import test_case
 
 
 class CalibrationBuilderTest(test_case.TestCase):

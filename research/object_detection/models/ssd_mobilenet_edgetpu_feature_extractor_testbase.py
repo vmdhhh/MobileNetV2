@@ -19,7 +19,7 @@ import abc
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from object_detection.models import ssd_feature_extractor_test
+from research.object_detection.models import ssd_feature_extractor_test
 
 
 class _SsdMobilenetEdgeTPUFeatureExtractorTestBase(

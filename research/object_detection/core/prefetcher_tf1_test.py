@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.core.prefetcher."""
+"""Tests for research.object_detection.core.prefetcher."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -23,8 +23,8 @@ from six.moves import range
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
 
-from object_detection.core import prefetcher
-from object_detection.utils import tf_version
+from research.object_detection.core import prefetcher
+from research.object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf2(), 'Skipping TF1.X only test.')

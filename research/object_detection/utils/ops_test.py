@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for object_detection.utils.ops."""
+"""Tests for research.object_detection.utils.ops."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -25,9 +25,9 @@ import six
 from six.moves import range
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
-from object_detection.core import standard_fields as fields
-from object_detection.utils import ops
-from object_detection.utils import test_case
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.utils import ops
+from research.object_detection.utils import test_case
 
 
 class NormalizedToImageCoordinatesTest(test_case.TestCase):

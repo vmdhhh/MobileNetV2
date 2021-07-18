@@ -23,12 +23,12 @@ from __future__ import print_function
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from object_detection.meta_architectures import ssd_meta_arch
-from object_detection.models import feature_map_generators
-from object_detection.models.keras_models import mobilenet_v1
-from object_detection.models.keras_models import model_utils
-from object_detection.utils import ops
-from object_detection.utils import shape_utils
+from research.object_detection.meta_architectures import ssd_meta_arch
+from research.object_detection.models import feature_map_generators
+from research.object_detection.models.keras_models import mobilenet_v1
+from research.object_detection.models.keras_models import model_utils
+from research.object_detection.utils import ops
+from research.object_detection.utils import shape_utils
 
 
 # A modified config of mobilenet v1 that makes it more detection friendly.

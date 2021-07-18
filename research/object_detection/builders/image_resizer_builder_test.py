@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for object_detection.builders.image_resizer_builder."""
+"""Tests for research.object_detection.builders.image_resizer_builder."""
 import numpy as np
 import tensorflow.compat.v1 as tf
 from google.protobuf import text_format
-from object_detection.builders import image_resizer_builder
-from object_detection.protos import image_resizer_pb2
-from object_detection.utils import test_case
+from research.object_detection.builders import image_resizer_builder
+from research.object_detection.protos import image_resizer_pb2
+from research.object_detection.utils import test_case
 
 
 class ImageResizerBuilderTest(test_case.TestCase):

@@ -1,4 +1,4 @@
-"""Setup script for object_detection with TF2.0."""
+"""Setup script for research.object_detection with TF2.0."""
 import os
 from setuptools import find_packages
 from setuptools import setup
@@ -25,12 +25,12 @@ REQUIRED_PACKAGES = [
 ]
 
 setup(
-    name='object_detection',
+    name='research.object_detection',
     version='0.1',
     install_requires=REQUIRED_PACKAGES,
     include_package_data=True,
     packages=(
-        [p for p in find_packages() if p.startswith('object_detection')] +
+        [p for p in find_packages() if p.startswith('research.object_detection')] +
         find_packages(where=os.path.join('.', 'slim'))),
     package_dir={
         'datasets': os.path.join('slim', 'datasets'),

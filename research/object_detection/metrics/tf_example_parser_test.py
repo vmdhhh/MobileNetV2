@@ -12,14 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for object_detection.data_decoders.tf_example_parser."""
+"""Tests for research.object_detection.data_decoders.tf_example_parser."""
 
 import numpy as np
 import numpy.testing as np_testing
 import tensorflow.compat.v1 as tf
 
-from object_detection.core import standard_fields as fields
-from object_detection.metrics import tf_example_parser
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.metrics import tf_example_parser
 
 
 class TfExampleDecoderTest(tf.test.TestCase):

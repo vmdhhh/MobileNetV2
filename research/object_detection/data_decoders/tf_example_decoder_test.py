@@ -12,18 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for object_detection.data_decoders.tf_example_decoder."""
+"""Tests for research.object_detection.data_decoders.tf_example_decoder."""
 
 import os
 import numpy as np
 import six
 import tensorflow.compat.v1 as tf
 
-from object_detection.core import standard_fields as fields
-from object_detection.data_decoders import tf_example_decoder
-from object_detection.protos import input_reader_pb2
-from object_detection.utils import dataset_util
-from object_detection.utils import test_case
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.data_decoders import tf_example_decoder
+from research.object_detection.protos import input_reader_pb2
+from research.object_detection.utils import dataset_util
+from research.object_detection.utils import test_case
 
 
 class TfExampleDecoderTest(test_case.TestCase):

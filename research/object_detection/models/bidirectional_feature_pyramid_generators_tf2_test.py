@@ -21,12 +21,12 @@ import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
 
-from object_detection.builders import hyperparams_builder
-from object_detection.models import bidirectional_feature_pyramid_generators as bifpn_generators
-from object_detection.protos import hyperparams_pb2
-from object_detection.utils import test_case
-from object_detection.utils import test_utils
-from object_detection.utils import tf_version
+from research.object_detection.builders import hyperparams_builder
+from research.object_detection.models import bidirectional_feature_pyramid_generators as bifpn_generators
+from research.object_detection.protos import hyperparams_pb2
+from research.object_detection.utils import test_case
+from research.object_detection.utils import test_utils
+from research.object_detection.utils import tf_version
 
 
 @parameterized.parameters({'bifpn_num_iterations': 2},

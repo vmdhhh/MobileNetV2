@@ -22,11 +22,11 @@ import six
 
 import tensorflow.compat.v2 as tf
 
-from object_detection import export_tflite_graph_lib_tf2
-from object_detection.builders import model_builder
-from object_detection.core import model
-from object_detection.protos import pipeline_pb2
-from object_detection.utils import tf_version
+from research.object_detection import export_tflite_graph_lib_tf2
+from research.object_detection.builders import model_builder
+from research.object_detection.core import model
+from research.object_detection.protos import pipeline_pb2
+from research.object_detection.utils import tf_version
 from google.protobuf import text_format
 
 if six.PY2:
@@ -144,7 +144,7 @@ model {
         width: 10
       }
     }
-    object_detection_task {
+    research.object_detection_task {
       localization_loss {
         l1_localization_loss {
         }
@@ -288,7 +288,7 @@ model {
     # should be 4.
     self.assertEqual(4, len(detections))
 
-  def test_center_net_inference_object_detection(self):
+  def test_center_net_inference_research.object_detection(self):
     tmp_dir = self.get_temp_dir()
     output_directory = os.path.join(tmp_dir, 'output')
     self._save_checkpoint_from_mock_model(tmp_dir)

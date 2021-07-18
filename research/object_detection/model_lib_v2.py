@@ -26,17 +26,17 @@ import time
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from object_detection import eval_util
-from object_detection import inputs
-from object_detection import model_lib
-from object_detection.builders import optimizer_builder
-from object_detection.core import standard_fields as fields
-from object_detection.protos import train_pb2
-from object_detection.utils import config_util
-from object_detection.utils import label_map_util
-from object_detection.utils import ops
-from object_detection.utils import variables_helper
-from object_detection.utils import visualization_utils as vutils
+from research.object_detection import eval_util
+from research.object_detection import inputs
+from research.object_detection import model_lib
+from research.object_detection.builders import optimizer_builder
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.protos import train_pb2
+from research.object_detection.utils import config_util
+from research.object_detection.utils import label_map_util
+from research.object_detection.utils import ops
+from research.object_detection.utils import variables_helper
+from research.object_detection.utils import visualization_utils as vutils
 
 
 MODEL_BUILD_UTIL_MAP = model_lib.MODEL_BUILD_UTIL_MAP

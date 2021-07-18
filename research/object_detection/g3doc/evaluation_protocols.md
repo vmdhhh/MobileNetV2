@@ -141,10 +141,10 @@ The old metric name is DEPRECATED.
 
 The metric for the OID Challenge Object Detection Metric 2018/2019 Object
 Detection track. The description is provided on the
-[Open Images Challenge website](https://storage.googleapis.com/openimages/web/evaluation.html#object_detection_eval).
+[Open Images Challenge website](https://storage.googleapis.com/openimages/web/evaluation.html#research.object_detection_eval).
 
 The old metric name is DEPRECATED.
-`EvalConfig.metrics_set='oid_challenge_object_detection_metrics'`
+`EvalConfig.metrics_set='oid_challenge_research.object_detection_metrics'`
 
 ## OID Challenge Visual Relationship Detection Metric
 

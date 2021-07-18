@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for tensorflow_model.object_detection.metrics.coco_tools."""
+"""Tests for tensorflow_model.research.object_detection.metrics.coco_tools."""
 import json
 import os
 import re
@@ -22,7 +22,7 @@ from pycocotools import mask
 
 import tensorflow.compat.v1 as tf
 
-from object_detection.metrics import coco_tools
+from research.object_detection.metrics import coco_tools
 
 
 class CocoToolsTest(tf.test.TestCase):

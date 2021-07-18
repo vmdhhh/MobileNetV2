@@ -34,7 +34,7 @@ values between 0 and 255 are scaled by (1/128.0) and then a value of
 In quantized Mobilenet model, 'normalized_image_tensor' has values between [0,
 255].
 In general, see the `preprocess` function defined in the feature extractor class
-in the object_detection/models directory.
+in the research.object_detection/models directory.
 
 Outputs:
 If add_postprocessing_op is true: frozen graph adds a
@@ -56,7 +56,7 @@ else:
 
 Example Usage:
 --------------
-python object_detection/export_tflite_ssd_graph.py \
+python research.object_detection/export_tflite_ssd_graph.py \
     --pipeline_config_path path/to/ssd_mobilenet.config \
     --trained_checkpoint_prefix path/to/model.ckpt \
     --output_directory path/to/exported_model_directory
@@ -74,7 +74,7 @@ eval config.
 
 Example Usage (in which we change the NMS iou_threshold to be 0.5 and
 NMS score_threshold to be 0.0):
-python object_detection/export_tflite_ssd_graph.py \
+python research.object_detection/export_tflite_ssd_graph.py \
     --pipeline_config_path path/to/ssd_mobilenet.config \
     --trained_checkpoint_prefix path/to/model.ckpt \
     --output_directory path/to/exported_model_directory
@@ -94,8 +94,8 @@ python object_detection/export_tflite_ssd_graph.py \
 
 import tensorflow.compat.v1 as tf
 from google.protobuf import text_format
-from object_detection import export_tflite_ssd_graph_lib
-from object_detection.protos import pipeline_pb2
+from research.object_detection import export_tflite_ssd_graph_lib
+from research.object_detection.protos import pipeline_pb2
 
 flags = tf.app.flags
 flags.DEFINE_string('output_directory', None, 'Path to write outputs.')

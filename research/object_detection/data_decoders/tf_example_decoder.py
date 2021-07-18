@@ -26,11 +26,11 @@ import numpy as np
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 from tf_slim import tfexample_decoder as slim_example_decoder
-from object_detection.core import data_decoder
-from object_detection.core import standard_fields as fields
-from object_detection.protos import input_reader_pb2
-from object_detection.utils import label_map_util
-from object_detection.utils import shape_utils
+from research.object_detection.core import data_decoder
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.protos import input_reader_pb2
+from research.object_detection.utils import label_map_util
+from research.object_detection.utils import shape_utils
 
 # pylint: disable=g-import-not-at-top
 try:
@@ -148,7 +148,7 @@ class TfExampleDecoder(data_decoder.DataDecoder):
       instance_mask_type: type of instance masks. Options are provided in
         input_reader.proto. This is only used if `load_instance_masks` is True.
       label_map_proto_file: a file path to a
-        object_detection.protos.StringIntLabelMap proto. If provided, then the
+        research.object_detection.protos.StringIntLabelMap proto. If provided, then the
         mapped IDs of 'image/object/class/text' will take precedence over the
         existing 'image/object/class/label' ID.  Also, if provided, it is
         assumed that 'image/object/class/text' will be in the data.

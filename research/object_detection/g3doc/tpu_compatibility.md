@@ -183,11 +183,11 @@ training parameters as listed below.
 
 We provide example config files that you can use to train your own models on TPU
 
-*   <a href='https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_300x300_coco14_sync.config'>ssd_mobilenet_v1_300x300</a> <br>
-*   <a href='https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync.config'>ssd_mobilenet_v1_ppn_300x300</a> <br>
-*   <a href='https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config'>ssd_mobilenet_v1_fpn_640x640
+*   <a href='https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/ssd_mobilenet_v1_300x300_coco14_sync.config'>ssd_mobilenet_v1_300x300</a> <br>
+*   <a href='https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/ssd_mobilenet_v1_ppn_shared_box_predictor_300x300_coco14_sync.config'>ssd_mobilenet_v1_ppn_300x300</a> <br>
+*   <a href='https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config'>ssd_mobilenet_v1_fpn_640x640
     (mobilenet based retinanet)</a> <br>
-*   <a href='https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync.config'>ssd_resnet50_v1_fpn_640x640
+*   <a href='https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/ssd_resnet50_v1_fpn_shared_box_predictor_640x640_coco14_sync.config'>ssd_resnet50_v1_fpn_640x640
     (retinanet)</a> <br>
 
 ## Supported Meta architectures

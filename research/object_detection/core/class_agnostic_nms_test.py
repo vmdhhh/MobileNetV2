@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for google3.third_party.tensorflow_models.object_detection.core.class_agnostic_nms."""
+"""Tests for google3.third_party.tensorflow_models.research.object_detection.core.class_agnostic_nms."""
 from absl.testing import parameterized
 import tensorflow.compat.v1 as tf
-from object_detection.core import post_processing
-from object_detection.core import standard_fields as fields
-from object_detection.utils import test_case
+from research.object_detection.core import post_processing
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.utils import test_case
 
 
 class ClassAgnosticNonMaxSuppressionTest(test_case.TestCase,

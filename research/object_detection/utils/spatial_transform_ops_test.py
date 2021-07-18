@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for object_detection.utils.spatial_transform_ops."""
+"""Tests for research.object_detection.utils.spatial_transform_ops."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -22,8 +22,8 @@ import numpy as np
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from object_detection.utils import spatial_transform_ops as spatial_ops
-from object_detection.utils import test_case
+from research.object_detection.utils import spatial_transform_ops as spatial_ops
+from research.object_detection.utils import test_case
 
 
 class BoxGridCoordinateTest(test_case.TestCase):

@@ -16,7 +16,7 @@ r"""Runs evaluation using OpenImages groundtruth and predictions.
 
 Example usage:
 python \
-models/research/object_detection/metrics/oid_vrd_challenge_evaluation.py \
+models/research/research.object_detection/metrics/oid_vrd_challenge_evaluation.py \
     --input_annotations_vrd=/path/to/input/annotations-human-bbox.csv \
     --input_annotations_labels=/path/to/input/annotations-label.csv \
     --input_class_labelmap=/path/to/input/class_labelmap.pbtxt \
@@ -39,10 +39,10 @@ import argparse
 import pandas as pd
 from google.protobuf import text_format
 
-from object_detection.metrics import io_utils
-from object_detection.metrics import oid_vrd_challenge_evaluation_utils as utils
-from object_detection.protos import string_int_label_map_pb2
-from object_detection.utils import vrd_evaluation
+from research.object_detection.metrics import io_utils
+from research.object_detection.metrics import oid_vrd_challenge_evaluation_utils as utils
+from research.object_detection.protos import string_int_label_map_pb2
+from research.object_detection.utils import vrd_evaluation
 
 
 def _load_labelmap(labelmap_path):

@@ -31,9 +31,9 @@ from __future__ import print_function
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
 
-from object_detection.data_decoders import tf_example_decoder
-from object_detection.data_decoders import tf_sequence_example_decoder
-from object_detection.protos import input_reader_pb2
+from research.object_detection.data_decoders import tf_example_decoder
+from research.object_detection.data_decoders import tf_sequence_example_decoder
+from research.object_detection.protos import input_reader_pb2
 
 parallel_reader = slim.parallel_reader
 

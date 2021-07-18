@@ -19,10 +19,10 @@ import ast
 import os
 
 import tensorflow.compat.v2 as tf
-from object_detection.builders import model_builder
-from object_detection.core import standard_fields as fields
-from object_detection.data_decoders import tf_example_decoder
-from object_detection.utils import config_util
+from research.object_detection.builders import model_builder
+from research.object_detection.core import standard_fields as fields
+from research.object_detection.data_decoders import tf_example_decoder
+from research.object_detection.utils import config_util
 
 
 INPUT_BUILDER_UTIL_MAP = {

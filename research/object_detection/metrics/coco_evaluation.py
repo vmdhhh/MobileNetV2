@@ -21,14 +21,14 @@ import numpy as np
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 
-from object_detection.core import standard_fields
-from object_detection.metrics import coco_tools
-from object_detection.utils import json_utils
-from object_detection.utils import np_mask_ops
-from object_detection.utils import object_detection_evaluation
+from research.object_detection.core import standard_fields
+from research.object_detection.metrics import coco_tools
+from research.object_detection.utils import json_utils
+from research.object_detection.utils import np_mask_ops
+from research.object_detection.utils import research.object_detection_evaluation
 
 
-class CocoDetectionEvaluator(object_detection_evaluation.DetectionEvaluator):
+class CocoDetectionEvaluator(research.object_detection_evaluation.DetectionEvaluator):
   """Class to evaluate COCO detection metrics."""
 
   def __init__(self,
@@ -957,7 +957,7 @@ class CocoKeypointEvaluator(CocoDetectionEvaluator):
     return eval_metric_ops
 
 
-class CocoMaskEvaluator(object_detection_evaluation.DetectionEvaluator):
+class CocoMaskEvaluator(research.object_detection_evaluation.DetectionEvaluator):
   """Class to evaluate COCO detection metrics."""
 
   def __init__(self, categories,
@@ -1371,7 +1371,7 @@ class CocoMaskEvaluator(object_detection_evaluation.DetectionEvaluator):
 
 
 class CocoPanopticSegmentationEvaluator(
-    object_detection_evaluation.DetectionEvaluator):
+    research.object_detection_evaluation.DetectionEvaluator):
   """Class to evaluate PQ (panoptic quality) metric on COCO dataset.
 
   More details about this metric: https://arxiv.org/pdf/1801.00868.pdf.
