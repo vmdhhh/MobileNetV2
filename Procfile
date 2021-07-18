@@ -1,1 +1,1 @@
-web: uvicorn research.object_detection.app:app --host=0.0.0.0 --port=${PORT:-5000}
+web: uvicorn research.object_detection.app:app --host=0.0.0.0 --port=${PORT:-5002}
