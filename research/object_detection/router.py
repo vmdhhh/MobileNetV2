@@ -1,5 +1,5 @@
 from fastapi import UploadFile, File, APIRouter
-from research.object_detection.deployment_script import detect
+from object_detection.deployment_script import detect
 from fastapi.responses import FileResponse
 import shutil
 
