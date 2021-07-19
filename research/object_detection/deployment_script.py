@@ -6,21 +6,22 @@ import tensorflow.compat.v1 as tf
 from matplotlib import pyplot as plt
 from PIL import Image
 
-from research.object_detection.utils import label_map_util
-from research.object_detection.utils import ops as utils_ops
-from research.object_detection.utils import visualization_utils as vis_util
+from object_detection.utils import label_map_util
+from object_detection.utils import ops as utils_ops
+from object_detection.utils import visualization_utils as vis_util
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
+# current_dir = 'D:/Thesis/yolo_test/MobileNetV2'
 current_dir = '../..'
 PATH_TO_CKPT = current_dir +'/research/training/fine_tuned_model'
 
 # List of the strings that is used to add correct label for each box.
-PATH_TO_LABELS = 'crosswalk_label_map.pbtxt'
+PATH_TO_LABELS = current_dir + '/crosswalk_4_dataset/train/crosswalk_label_map.pbtxt'
 
 # If you want to test the code with your images, just add images files to the PATH_TO_TEST_IMAGES_DIR.
 PATH_TO_TEST_IMAGES_DIR =  current_dir+'/crosswalk_4_dataset/test'
 
-pb_fname = 'frozen_inference_graph.pb'
+pb_fname = current_dir+ '/research/training/fine_tuned_model/frozen_inference_graph.pb'
 
 
 #--------------------------------------------------------------------------------------------------------

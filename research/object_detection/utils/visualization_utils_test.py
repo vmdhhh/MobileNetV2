@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.utils.visualization_utils."""
+"""Tests for object_detection.utils.visualization_utils."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -27,11 +27,11 @@ import six
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.utils import test_case
-from research.object_detection.utils import visualization_utils
+from object_detection.core import standard_fields as fields
+from object_detection.utils import test_case
+from object_detection.utils import visualization_utils
 
-_TESTDATA_PATH = 'research.object_detection/test_images'
+_TESTDATA_PATH = 'object_detection/test_images'
 
 
 def get_iterator_next_for_testing(dataset, is_tf2):

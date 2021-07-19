@@ -19,8 +19,8 @@ import numpy as np
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
 
-from research.object_detection.meta_architectures import faster_rcnn_meta_arch
-from research.object_detection.utils import shape_utils
+from object_detection.meta_architectures import faster_rcnn_meta_arch
+from object_detection.utils import shape_utils
 from nets import mobilenet_v1
 
 

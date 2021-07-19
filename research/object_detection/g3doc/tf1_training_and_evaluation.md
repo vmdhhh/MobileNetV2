@@ -65,7 +65,7 @@ PIPELINE_CONFIG_PATH={path to pipeline config file}
 MODEL_DIR={path to model directory}
 NUM_TRAIN_STEPS=50000
 SAMPLE_1_OF_N_EVAL_EXAMPLES=1
-python research.object_detection/model_main.py \
+python object_detection/model_main.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
     --model_dir=${MODEL_DIR} \
     --num_train_steps=${NUM_TRAIN_STEPS} \
@@ -133,13 +133,13 @@ following command:
 
 ```bash
 # From the tensorflow/models/research/ directory
-cp research.object_detection/packages/tf1/setup.py .
-gcloud ml-engine jobs submit training research.object_detection_`date +%m_%d_%Y_%H_%M_%S` \
+cp object_detection/packages/tf1/setup.py .
+gcloud ml-engine jobs submit training object_detection_`date +%m_%d_%Y_%H_%M_%S` \
     --runtime-version 1.15 \
     --python-version 3.6 \
     --job-dir=gs://${MODEL_DIR} \
-    --package-path ./research.object_detection \
-    --module-name research.object_detection.model_main \
+    --package-path ./object_detection \
+    --module-name object_detection.model_main \
     --region us-central1 \
     --config ${PATH_TO_LOCAL_YAML_FILE} \
     -- \
@@ -163,11 +163,11 @@ similar command:
 
 ```bash
 # From the tensorflow/models/research/ directory
-cp research.object_detection/packages/tf1/setup.py .
-gcloud ml-engine jobs submit training `whoami`_research.object_detection_`date +%m_%d_%Y_%H_%M_%S` \
+cp object_detection/packages/tf1/setup.py .
+gcloud ml-engine jobs submit training `whoami`_object_detection_`date +%m_%d_%Y_%H_%M_%S` \
     --job-dir=gs://${MODEL_DIR} \
-    --package-path ./research.object_detection \
-    --module-name research.object_detection.model_tpu_main \
+    --package-path ./object_detection \
+    --module-name object_detection.model_tpu_main \
     --runtime-version 1.15 \
     --python-version 3.6 \
     --scale-tier BASIC_TPU \
@@ -179,8 +179,8 @@ gcloud ml-engine jobs submit training `whoami`_research.object_detection_`date +
 ```
 
 In contrast with the GPU training command, there is no need to specify a YAML
-file, and we point to the *research.object_detection.model_tpu_main* binary instead of
-*research.object_detection.model_main*. We must also now set `scale-tier` to be
+file, and we point to the *object_detection.model_tpu_main* binary instead of
+*object_detection.model_main*. We must also now set `scale-tier` to be
 `BASIC_TPU` and provide a `tpu_zone`. Finally as before `pipeline_config_path`
 points to a points to the pipeline configuration stored on Google Cloud Storage
 (but is now must be a TPU compatible model).
@@ -197,13 +197,13 @@ job:
 
 ```bash
 # From the tensorflow/models/research/ directory
-cp research.object_detection/packages/tf1/setup.py .
-gcloud ml-engine jobs submit training research.object_detection_eval_`date +%m_%d_%Y_%H_%M_%S` \
+cp object_detection/packages/tf1/setup.py .
+gcloud ml-engine jobs submit training object_detection_eval_`date +%m_%d_%Y_%H_%M_%S` \
     --runtime-version 1.15 \
     --python-version 3.6 \
     --job-dir=gs://${MODEL_DIR} \
-    --package-path ./research.object_detection \
-    --module-name research.object_detection.model_main \
+    --package-path ./object_detection \
+    --module-name object_detection.model_main \
     --region us-central1 \
     --scale-tier BASIC_GPU \
     -- \

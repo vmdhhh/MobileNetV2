@@ -23,7 +23,7 @@ import PIL.Image
 import six
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.dataset_tools import create_coco_tf_record
+from object_detection.dataset_tools import create_coco_tf_record
 
 
 class CreateCocoTFRecordTest(tf.test.TestCase):

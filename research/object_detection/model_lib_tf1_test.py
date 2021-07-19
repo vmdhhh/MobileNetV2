@@ -24,13 +24,13 @@ import unittest
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection import inputs
-from research.object_detection import model_hparams
-from research.object_detection import model_lib
-from research.object_detection.builders import model_builder
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.utils import config_util
-from research.object_detection.utils import tf_version
+from object_detection import inputs
+from object_detection import model_hparams
+from object_detection import model_lib
+from object_detection.builders import model_builder
+from object_detection.core import standard_fields as fields
+from object_detection.utils import config_util
+from object_detection.utils import tf_version
 
 
 # Model for test. Options are:

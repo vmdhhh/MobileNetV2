@@ -65,7 +65,7 @@ A local training job can be run with the following command:
 # From the tensorflow/models/research/ directory
 PIPELINE_CONFIG_PATH={path to pipeline config file}
 MODEL_DIR={path to model directory}
-python research.object_detection/model_main_tf2.py \
+python object_detection/model_main_tf2.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
     --model_dir=${MODEL_DIR} \
     --alsologtostderr
@@ -85,7 +85,7 @@ PIPELINE_CONFIG_PATH={path to pipeline config file}
 MODEL_DIR={path to model directory}
 CHECKPOINT_DIR=${MODEL_DIR}
 MODEL_DIR={path to model directory}
-python research.object_detection/model_main_tf2.py \
+python object_detection/model_main_tf2.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
     --model_dir=${MODEL_DIR} \
     --checkpoint_dir=${CHECKPOINT_DIR} \
@@ -129,7 +129,7 @@ USE_TPU=true
 TPU_NAME="MY_TPU_NAME"
 PIPELINE_CONFIG_PATH={path to pipeline config file}
 MODEL_DIR={path to model directory}
-python research.object_detection/model_main_tf2.py \
+python object_detection/model_main_tf2.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
     --model_dir=${MODEL_DIR} \
     --use_tpu=${USE_TPU} \  # (optional) only required for TPU training.
@@ -153,7 +153,7 @@ PIPELINE_CONFIG_PATH={path to pipeline config file}
 MODEL_DIR={path to model directory}
 CHECKPOINT_DIR=${MODEL_DIR}
 MODEL_DIR={path to model directory}
-python research.object_detection/model_main_tf2.py \
+python object_detection/model_main_tf2.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
     --model_dir=${MODEL_DIR} \
     --checkpoint_dir=${CHECKPOINT_DIR} \
@@ -192,13 +192,13 @@ command:
 
 ```bash
 # From the tensorflow/models/research/ directory
-cp research.object_detection/packages/tf2/setup.py .
-gcloud ai-platform jobs submit training research.object_detection_`date +%m_%d_%Y_%H_%M_%S` \
+cp object_detection/packages/tf2/setup.py .
+gcloud ai-platform jobs submit training object_detection_`date +%m_%d_%Y_%H_%M_%S` \
     --runtime-version 2.1 \
     --python-version 3.6 \
     --job-dir=gs://${MODEL_DIR} \
-    --package-path ./research.object_detection \
-    --module-name research.object_detection.model_main_tf2 \
+    --package-path ./object_detection \
+    --module-name object_detection.model_main_tf2 \
     --region us-central1 \
     --master-machine-type n1-highcpu-16 \
     --master-accelerator count=8,type=nvidia-tesla-v100 \
@@ -222,11 +222,11 @@ similar command:
 
 ```bash
 # From the tensorflow/models/research/ directory
-cp research.object_detection/packages/tf2/setup.py .
-gcloud ai-platform jobs submit training `whoami`_research.object_detection_`date +%m_%d_%Y_%H_%M_%S` \
+cp object_detection/packages/tf2/setup.py .
+gcloud ai-platform jobs submit training `whoami`_object_detection_`date +%m_%d_%Y_%H_%M_%S` \
     --job-dir=gs://${MODEL_DIR} \
-    --package-path ./research.object_detection \
-    --module-name research.object_detection.model_main_tf2 \
+    --package-path ./object_detection \
+    --module-name object_detection.model_main_tf2 \
     --runtime-version 2.1 \
     --python-version 3.6 \
     --scale-tier BASIC_TPU \
@@ -247,13 +247,13 @@ evaluation job:
 
 ```bash
 # From the tensorflow/models/research/ directory
-cp research.object_detection/packages/tf2/setup.py .
-gcloud ai-platform jobs submit training research.object_detection_eval_`date +%m_%d_%Y_%H_%M_%S` \
+cp object_detection/packages/tf2/setup.py .
+gcloud ai-platform jobs submit training object_detection_eval_`date +%m_%d_%Y_%H_%M_%S` \
     --runtime-version 2.1 \
     --python-version 3.6 \
     --job-dir=gs://${MODEL_DIR} \
-    --package-path ./research.object_detection \
-    --module-name research.object_detection.model_main_tf2 \
+    --package-path ./object_detection \
+    --module-name object_detection.model_main_tf2 \
     --region us-central1 \
     --scale-tier BASIC_GPU \
     -- \

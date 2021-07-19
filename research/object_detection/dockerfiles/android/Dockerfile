@@ -32,7 +32,7 @@ RUN apt-get -y update && apt-get install -y gpg-agent && \
 
 
 # Install the Tensorflow Object Detection API from here
-# https://github.com/tensorflow/models/blob/master/research/research.object_detection/g3doc/installation.md
+# https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
 
 # Install object detection api dependencies - use non-interactive mode to set
 # default tzdata config during installation.
@@ -60,7 +60,7 @@ RUN curl -OL "https://github.com/google/protobuf/releases/download/v3.0.0/protoc
 
 # Run protoc on the object detection repo
 RUN cd /tensorflow/models/research && \
-    protoc research.object_detection/protos/*.proto --python_out=.
+    protoc object_detection/protos/*.proto --python_out=.
 
 # Set the PYTHONPATH to finish installing the API
 ENV PYTHONPATH $PYTHONPATH:/tensorflow/models/research:/tensorflow/models/research/slim
@@ -78,12 +78,12 @@ RUN apt-get install -y wget vim emacs nano
 # Pets example dataset
 RUN mkdir -p /tmp/pet_faces_tfrecord/ && \
     cd /tmp/pet_faces_tfrecord && \
-    curl "http://download.tensorflow.org/models/research.object_detection/pet_faces_tfrecord.tar.gz" | tar xzf -
+    curl "http://download.tensorflow.org/models/object_detection/pet_faces_tfrecord.tar.gz" | tar xzf -
 
 # Pretrained model
 # This one doesn't need its own directory, since it comes in a folder.
 RUN cd /tmp && \
-    curl -O "http://download.tensorflow.org/models/research.object_detection/ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03.tar.gz" && \
+    curl -O "http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03.tar.gz" && \
     tar xzf ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03.tar.gz && \
     rm ssd_mobilenet_v1_0.75_depth_300x300_coco14_sync_2018_07_03.tar.gz
 

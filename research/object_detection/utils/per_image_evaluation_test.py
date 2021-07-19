@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.utils.per_image_evaluation."""
+"""Tests for object_detection.utils.per_image_evaluation."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -23,7 +23,7 @@ import numpy as np
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import per_image_evaluation
+from object_detection.utils import per_image_evaluation
 
 
 class SingleClassTpFpWithDifficultBoxesTest(tf.test.TestCase):
@@ -650,7 +650,7 @@ class MultiClassesTpFpTest(tf.test.TestCase):
     groundtruth_groundtruth_is_difficult_list = np.zeros(2, dtype=float)
     groundtruth_groundtruth_is_group_of_list = np.array(
         [False, False], dtype=bool)
-    scores, tp_fp_labels, _ = eval1.compute_research.object_detection_metrics(
+    scores, tp_fp_labels, _ = eval1.compute_object_detection_metrics(
         detected_boxes, detected_scores, detected_class_labels,
         groundtruth_boxes, groundtruth_class_labels,
         groundtruth_groundtruth_is_difficult_list,

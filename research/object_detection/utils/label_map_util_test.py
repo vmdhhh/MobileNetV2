@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for research.object_detection.utils.label_map_util."""
+"""Tests for object_detection.utils.label_map_util."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -24,8 +24,8 @@ from six.moves import range
 import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
-from research.object_detection.protos import string_int_label_map_pb2
-from research.object_detection.utils import label_map_util
+from object_detection.protos import string_int_label_map_pb2
+from object_detection.utils import label_map_util
 
 
 class LabelMapUtilTest(tf.test.TestCase):

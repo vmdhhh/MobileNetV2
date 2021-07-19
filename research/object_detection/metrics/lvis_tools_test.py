@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for tensorflow_model.research.object_detection.metrics.lvis_tools."""
+"""Tests for tensorflow_model.object_detection.metrics.lvis_tools."""
 from lvis import results as lvis_results
 import numpy as np
 from pycocotools import mask
 import tensorflow.compat.v1 as tf
-from research.object_detection.metrics import lvis_tools
+from object_detection.metrics import lvis_tools
 
 
 class LVISToolsTest(tf.test.TestCase):

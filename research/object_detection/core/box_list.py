@@ -36,7 +36,7 @@ Some other notes:
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import shape_utils
+from object_detection.utils import shape_utils
 
 
 class BoxList(object):

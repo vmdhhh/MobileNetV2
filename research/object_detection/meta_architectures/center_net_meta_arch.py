@@ -24,15 +24,15 @@ import functools
 import tensorflow.compat.v1 as tf
 import tensorflow.compat.v2 as tf2
 
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.core import keypoint_ops
-from research.object_detection.core import model
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.core import target_assigner as cn_assigner
-from research.object_detection.utils import shape_utils
-from research.object_detection.utils import target_assigner_utils as ta_utils
-from research.object_detection.utils import tf_version
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.core import keypoint_ops
+from object_detection.core import model
+from object_detection.core import standard_fields as fields
+from object_detection.core import target_assigner as cn_assigner
+from object_detection.utils import shape_utils
+from object_detection.utils import target_assigner_utils as ta_utils
+from object_detection.utils import tf_version
 
 
 # Number of channels needed to predict size and offsets.
@@ -1856,7 +1856,7 @@ class ObjectDetectionParams(
     """Constructor with default values for ObjectDetectionParams.
 
     Args:
-      localization_loss: a research.object_detection.core.losses.Loss object to compute
+      localization_loss: a object_detection.core.losses.Loss object to compute
         the loss for the center offset and height/width predictions in
         CenterNet.
       scale_loss_weight: float, The weight for localizing box size. Note that
@@ -1963,9 +1963,9 @@ class KeypointEstimationParams(
         keypoints to be considered in this task. This is used to retrieve the
         subset of the keypoints from gt_keypoints that should be considered in
         this task.
-      classification_loss: an research.object_detection.core.losses.Loss object to
+      classification_loss: an object_detection.core.losses.Loss object to
         compute the loss for the class predictions in CenterNet.
-      localization_loss: an research.object_detection.core.losses.Loss object to compute
+      localization_loss: an object_detection.core.losses.Loss object to compute
         the loss for the center offset and height/width predictions in
         CenterNet.
       keypoint_labels: A list of strings representing the label text of each
@@ -2094,7 +2094,7 @@ class ObjectCenterParams(
     """Constructor with default values for ObjectCenterParams.
 
     Args:
-      classification_loss: an research.object_detection.core.losses.Loss object to
+      classification_loss: an object_detection.core.losses.Loss object to
         compute the loss for the class predictions in CenterNet.
       object_center_loss_weight: float, The weight for the object center loss.
       heatmap_bias_init: float, the initial value of bias in the convolutional
@@ -2148,7 +2148,7 @@ class MaskParams(
     """Constructor with default values for MaskParams.
 
     Args:
-      classification_loss: an research.object_detection.core.losses.Loss object to
+      classification_loss: an object_detection.core.losses.Loss object to
         compute the loss for the semantic segmentation predictions in CenterNet.
       task_loss_weight: float, The loss weight for the segmentation task.
       mask_height: The height of the resized instance segmentation mask.
@@ -2202,9 +2202,9 @@ class DensePoseParams(
         This should typically correspond to the "person" class. Note that the ID
         is 0-based, meaning that class 0 corresponds to the first non-background
         object class.
-      classification_loss: an research.object_detection.core.losses.Loss object to
+      classification_loss: an object_detection.core.losses.Loss object to
         compute the loss for the body part predictions in CenterNet.
-      localization_loss: an research.object_detection.core.losses.Loss object to compute
+      localization_loss: an object_detection.core.losses.Loss object to compute
         the loss for the surface coordinate regression in CenterNet.
       part_loss_weight: The loss weight to apply to part prediction.
       coordinate_loss_weight: The loss weight to apply to surface coordinate
@@ -2255,7 +2255,7 @@ class TrackParams(
       reid_embed_size: int. The embedding size for ReID task.
       num_fc_layers: int. The number of (fully-connected, batch-norm, relu)
         layers for track ID classification head.
-      classification_loss: an research.object_detection.core.losses.Loss object to
+      classification_loss: an object_detection.core.losses.Loss object to
         compute the loss for the ReID embedding in CenterNet.
       task_loss_weight: float, the loss weight for the tracking task.
 
@@ -2282,7 +2282,7 @@ class TemporalOffsetParams(
     """Constructor with default values for TrackParams.
 
     Args:
-      localization_loss: an research.object_detection.core.losses.Loss object to
+      localization_loss: an object_detection.core.losses.Loss object to
         compute the loss for the temporal offset in CenterNet.
       task_loss_weight: float, the loss weight for the temporal offset
         task.
@@ -2354,7 +2354,7 @@ class CenterNetMetaArch(model.DetectionModel):
                feature_extractor,
                image_resizer_fn,
                object_center_params,
-               research.object_detection_params=None,
+               object_detection_params=None,
                keypoint_params_dict=None,
                mask_params=None,
                densepose_params=None,
@@ -2381,7 +2381,7 @@ class CenterNetMetaArch(model.DetectionModel):
       object_center_params: An ObjectCenterParams namedtuple. This object holds
         the hyper-parameters for object center prediction. This is required by
         either object detection or keypoint estimation tasks.
-      research.object_detection_params: An ObjectDetectionParams namedtuple. This object
+      object_detection_params: An ObjectDetectionParams namedtuple. This object
         holds the hyper-parameters necessary for object detection. Please see
         the class definition for more details.
       keypoint_params_dict: A dictionary that maps from task name to the
@@ -2410,7 +2410,7 @@ class CenterNetMetaArch(model.DetectionModel):
       unit_height_conv: If True, Conv2Ds in prediction heads have asymmetric
         kernels with height=1.
     """
-    assert research.object_detection_params or keypoint_params_dict
+    assert object_detection_params or keypoint_params_dict
     # Shorten the name for convenience and better formatting.
     self._is_training = is_training
     # The Objects as Points paper attaches loss functions to multiple
@@ -2422,7 +2422,7 @@ class CenterNetMetaArch(model.DetectionModel):
     self._stride = self._feature_extractor.out_stride
     self._image_resizer_fn = image_resizer_fn
     self._center_params = object_center_params
-    self._od_params = research.object_detection_params
+    self._od_params = object_detection_params
     self._kp_params_dict = keypoint_params_dict
     self._mask_params = mask_params
     if densepose_params is not None and mask_params is None:
@@ -2758,7 +2758,7 @@ class CenterNetMetaArch(model.DetectionModel):
         float(len(object_center_predictions)) * num_boxes)
     return loss_per_instance
 
-  def _compute_research.object_detection_losses(self, input_height, input_width,
+  def _compute_object_detection_losses(self, input_height, input_width,
                                        prediction_dict, per_pixel_weights):
     """Computes the weighted object detection losses.
 
@@ -2907,7 +2907,7 @@ class CenterNetMetaArch(model.DetectionModel):
       heatmap_predictions: A list of float tensors of shape [batch_size,
         out_height, out_width, num_keypoints] representing the prediction heads
         of the model for keypoint heatmap.
-      classification_loss_fn: An research.object_detection.core.losses.Loss object to
+      classification_loss_fn: An object_detection.core.losses.Loss object to
         compute the loss for the class predictions in CenterNet.
       per_pixel_weights: A float tensor of shape [batch_size,
         out_height * out_width, 1] with 1s in locations where the spatial
@@ -2965,7 +2965,7 @@ class CenterNetMetaArch(model.DetectionModel):
       offset_predictions: A list of float tensors of shape [batch_size,
         out_height, out_width, 2] representing the prediction heads of the model
         for keypoint offset.
-      localization_loss_fn: An research.object_detection.core.losses.Loss object to
+      localization_loss_fn: An object_detection.core.losses.Loss object to
         compute the loss for the keypoint offset predictions in CenterNet.
 
     Returns:
@@ -3019,7 +3019,7 @@ class CenterNetMetaArch(model.DetectionModel):
       regression_predictions: A list of float tensors of shape [batch_size,
         out_height, out_width, 2 * num_keypoints] representing the prediction
         heads of the model for keypoint regression offset.
-      localization_loss_fn: An research.object_detection.core.losses.Loss object to
+      localization_loss_fn: An object_detection.core.losses.Loss object to
         compute the loss for the keypoint regression offset predictions in
         CenterNet.
 
@@ -3072,7 +3072,7 @@ class CenterNetMetaArch(model.DetectionModel):
       depth_predictions: A list of float tensors of shape [batch_size,
         out_height, out_width, 1 (or num_keypoints)] representing the prediction
         heads of the model for keypoint depth.
-      localization_loss_fn: An research.object_detection.core.losses.Loss object to
+      localization_loss_fn: An object_detection.core.losses.Loss object to
         compute the loss for the keypoint offset predictions in CenterNet.
 
     Returns:
@@ -3613,7 +3613,7 @@ class CenterNetMetaArch(model.DetectionModel):
             self._center_params.object_center_loss_weight * object_center_loss
     }
     if self._od_params is not None:
-      od_losses = self._compute_research.object_detection_losses(
+      od_losses = self._compute_object_detection_losses(
           input_height=input_height,
           input_width=input_width,
           prediction_dict=prediction_dict,

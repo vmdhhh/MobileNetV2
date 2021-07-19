@@ -40,24 +40,24 @@ from six.moves import zip
 import tensorflow.compat.v1 as tf
 import tensorflow.compat.v2 as tf2
 
-from research.object_detection.box_coders import faster_rcnn_box_coder
-from research.object_detection.box_coders import mean_stddev_box_coder
-from research.object_detection.core import box_coder
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.core import densepose_ops
-from research.object_detection.core import keypoint_ops
-from research.object_detection.core import matcher as mat
-from research.object_detection.core import region_similarity_calculator as sim_calc
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.matchers import argmax_matcher
-from research.object_detection.matchers import hungarian_matcher
-from research.object_detection.utils import shape_utils
-from research.object_detection.utils import target_assigner_utils as ta_utils
-from research.object_detection.utils import tf_version
+from object_detection.box_coders import faster_rcnn_box_coder
+from object_detection.box_coders import mean_stddev_box_coder
+from object_detection.core import box_coder
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.core import densepose_ops
+from object_detection.core import keypoint_ops
+from object_detection.core import matcher as mat
+from object_detection.core import region_similarity_calculator as sim_calc
+from object_detection.core import standard_fields as fields
+from object_detection.matchers import argmax_matcher
+from object_detection.matchers import hungarian_matcher
+from object_detection.utils import shape_utils
+from object_detection.utils import target_assigner_utils as ta_utils
+from object_detection.utils import tf_version
 
 if tf_version.is_tf1():
-  from research.object_detection.matchers import bipartite_matcher  # pylint: disable=g-import-not-at-top
+  from object_detection.matchers import bipartite_matcher  # pylint: disable=g-import-not-at-top
 
 ResizeMethod = tf2.image.ResizeMethod
 
@@ -76,9 +76,9 @@ class TargetAssigner(object):
 
     Args:
       similarity_calc: a RegionSimilarityCalculator
-      matcher: an research.object_detection.core.Matcher used to match groundtruth to
+      matcher: an object_detection.core.Matcher used to match groundtruth to
         anchors.
-      box_coder_instance: an research.object_detection.core.BoxCoder used to encode
+      box_coder_instance: an object_detection.core.BoxCoder used to encode
         matching groundtruth boxes with respect to anchors.
       negative_class_weight: classification weight to be associated to negative
         anchors (default: 1.0). The weight must be in [0., 1.].

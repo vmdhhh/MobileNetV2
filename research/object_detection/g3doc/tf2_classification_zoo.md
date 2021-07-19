@@ -9,17 +9,17 @@ model parameters.
 
 Model name |
 ---------- |
-[EfficientNet B0](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b0.tar.gz)     |
-[EfficientNet B1](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b1.tar.gz)     |
-[EfficientNet B2](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b2.tar.gz)     |
-[EfficientNet B3](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b3.tar.gz)     |
-[EfficientNet B4](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b4.tar.gz)     |
-[EfficientNet B5](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b5.tar.gz)     |
-[EfficientNet B6](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b6.tar.gz)     |
-[EfficientNet B7](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/efficientnet_b7.tar.gz)     |
-[Resnet V1 50](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/resnet50_v1.tar.gz)         |
-[Resnet V1 101](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/resnet101_v1.tar.gz)       |
-[Resnet V1 152](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/resnet152_v1.tar.gz)       |
-[Inception Resnet V2](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/inception_resnet_v2.tar.gz) |
-[MobileNet V1](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/mobilnet_v1.tar.gz)        |
-[MobileNet V2](http://download.tensorflow.org/models/research.object_detection/classification/tf2/20200710/mobilnet_v2.tar.gz)        |
+[EfficientNet B0](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b0.tar.gz)     |
+[EfficientNet B1](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b1.tar.gz)     |
+[EfficientNet B2](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b2.tar.gz)     |
+[EfficientNet B3](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b3.tar.gz)     |
+[EfficientNet B4](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b4.tar.gz)     |
+[EfficientNet B5](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b5.tar.gz)     |
+[EfficientNet B6](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b6.tar.gz)     |
+[EfficientNet B7](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/efficientnet_b7.tar.gz)     |
+[Resnet V1 50](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/resnet50_v1.tar.gz)         |
+[Resnet V1 101](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/resnet101_v1.tar.gz)       |
+[Resnet V1 152](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/resnet152_v1.tar.gz)       |
+[Inception Resnet V2](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/inception_resnet_v2.tar.gz) |
+[MobileNet V1](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/mobilnet_v1.tar.gz)        |
+[MobileNet V2](http://download.tensorflow.org/models/object_detection/classification/tf2/20200710/mobilnet_v2.tar.gz)        |

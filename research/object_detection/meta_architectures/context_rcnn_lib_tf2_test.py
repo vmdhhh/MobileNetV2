@@ -22,9 +22,9 @@ import unittest
 from absl.testing import parameterized
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.meta_architectures import context_rcnn_lib_tf2 as context_rcnn_lib
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.meta_architectures import context_rcnn_lib_tf2 as context_rcnn_lib
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 _NEGATIVE_PADDING_VALUE = -100000
 

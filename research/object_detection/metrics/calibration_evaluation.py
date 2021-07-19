@@ -20,19 +20,19 @@ from __future__ import print_function
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.box_coders import mean_stddev_box_coder
-from research.object_detection.core import box_list
-from research.object_detection.core import region_similarity_calculator
-from research.object_detection.core import standard_fields
-from research.object_detection.core import target_assigner
-from research.object_detection.matchers import argmax_matcher
-from research.object_detection.metrics import calibration_metrics
-from research.object_detection.utils import research.object_detection_evaluation
+from object_detection.box_coders import mean_stddev_box_coder
+from object_detection.core import box_list
+from object_detection.core import region_similarity_calculator
+from object_detection.core import standard_fields
+from object_detection.core import target_assigner
+from object_detection.matchers import argmax_matcher
+from object_detection.metrics import calibration_metrics
+from object_detection.utils import object_detection_evaluation
 
 
 # TODO(zbeaver): Implement metrics per category.
 class CalibrationDetectionEvaluator(
-    research.object_detection_evaluation.DetectionEvaluator):
+    object_detection_evaluation.DetectionEvaluator):
   """Class to evaluate calibration detection metrics."""
 
   def __init__(self,

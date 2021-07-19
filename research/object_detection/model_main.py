@@ -22,7 +22,7 @@ from absl import flags
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection import model_lib
+from object_detection import model_lib
 
 flags.DEFINE_string(
     'model_dir', None, 'Path to output model directory '

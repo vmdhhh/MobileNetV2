@@ -20,11 +20,11 @@ import numpy as np
 import tensorflow.compat.v2 as tf
 
 from google.protobuf import text_format
-from research.object_detection.builders import hyperparams_builder
-from research.object_detection.models import ssd_efficientnet_bifpn_feature_extractor
-from research.object_detection.protos import hyperparams_pb2
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.builders import hyperparams_builder
+from object_detection.models import ssd_efficientnet_bifpn_feature_extractor
+from object_detection.protos import hyperparams_pb2
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 
 def _count_params(model, trainable_only=True):

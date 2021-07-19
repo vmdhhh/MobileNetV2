@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.utils.patch_ops."""
+"""Tests for object_detection.utils.patch_ops."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -23,8 +23,8 @@ from absl.testing import parameterized
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import patch_ops
-from research.object_detection.utils import test_case
+from object_detection.utils import patch_ops
+from object_detection.utils import test_case
 
 
 class GetPatchMaskTest(test_case.TestCase, parameterized.TestCase):

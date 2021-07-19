@@ -23,17 +23,17 @@ from absl.testing import parameterized
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.builders import post_processing_builder
-from research.object_detection.core import keypoint_ops
-from research.object_detection.core import losses
-from research.object_detection.core import preprocessor
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.core import target_assigner as cn_assigner
-from research.object_detection.meta_architectures import center_net_meta_arch as cnma
-from research.object_detection.models import center_net_resnet_feature_extractor
-from research.object_detection.protos import post_processing_pb2
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.builders import post_processing_builder
+from object_detection.core import keypoint_ops
+from object_detection.core import losses
+from object_detection.core import preprocessor
+from object_detection.core import standard_fields as fields
+from object_detection.core import target_assigner as cn_assigner
+from object_detection.meta_architectures import center_net_meta_arch as cnma
+from object_detection.models import center_net_resnet_feature_extractor
+from object_detection.protos import post_processing_pb2
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf1(), 'Skipping TF2.X only test.')
@@ -1773,7 +1773,7 @@ def build_center_net_meta_arch(build_resnet=False,
         feature_extractor=feature_extractor,
         image_resizer_fn=image_resizer_fn,
         object_center_params=get_fake_center_params(max_box_predictions),
-        research.object_detection_params=get_fake_od_params(),
+        object_detection_params=get_fake_od_params(),
         non_max_suppression_fn=non_max_suppression_fn)
   elif num_classes == 1:
     num_candidates_per_keypoint = 100 if max_box_predictions > 1 else 1
@@ -1784,7 +1784,7 @@ def build_center_net_meta_arch(build_resnet=False,
         feature_extractor=feature_extractor,
         image_resizer_fn=image_resizer_fn,
         object_center_params=get_fake_center_params(max_box_predictions),
-        research.object_detection_params=get_fake_od_params(),
+        object_detection_params=get_fake_od_params(),
         keypoint_params_dict={
             _TASK_NAME:
                 get_fake_kp_params(num_candidates_per_keypoint,
@@ -1801,7 +1801,7 @@ def build_center_net_meta_arch(build_resnet=False,
         feature_extractor=feature_extractor,
         image_resizer_fn=image_resizer_fn,
         object_center_params=get_fake_center_params(),
-        research.object_detection_params=get_fake_od_params(),
+        object_detection_params=get_fake_od_params(),
         keypoint_params_dict={_TASK_NAME: get_fake_kp_params(
             candidate_ranking_mode=candidate_ranking_mode)},
         mask_params=get_fake_mask_params(),
@@ -2635,7 +2635,7 @@ class CenterNetMetaArchTest(test_case.TestCase, parameterized.TestCase):
         feature_extractor=feature_extractor,
         image_resizer_fn=image_resizer_fn,
         object_center_params=get_fake_center_params(),
-        research.object_detection_params=get_fake_od_params(),
+        object_detection_params=get_fake_od_params(),
         keypoint_params_dict={
             'kpt_task_1': kp_params_1,
             'kpt_task_2': kp_params_2,
@@ -3268,7 +3268,7 @@ class CenterNetMetaArch1dTest(test_case.TestCase, parameterized.TestCase):
             object_center_loss_weight=1.0,
             max_box_predictions=max_boxes,
         ),
-        research.object_detection_params=cnma.ObjectDetectionParams(
+        object_detection_params=cnma.ObjectDetectionParams(
             localization_loss=losses.L1LocalizationLoss(),
             scale_loss_weight=1.0,
             offset_loss_weight=1.0,

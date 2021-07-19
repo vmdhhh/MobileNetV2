@@ -20,12 +20,12 @@ import unittest
 from unittest import mock  # pylint: disable=g-importing-member
 import tensorflow.compat.v1 as tf
 from google.protobuf import text_format
-from research.object_detection.builders import box_predictor_builder
-from research.object_detection.builders import hyperparams_builder
-from research.object_detection.predictors import mask_rcnn_box_predictor
-from research.object_detection.protos import box_predictor_pb2
-from research.object_detection.protos import hyperparams_pb2
-from research.object_detection.utils import tf_version
+from object_detection.builders import box_predictor_builder
+from object_detection.builders import hyperparams_builder
+from object_detection.predictors import mask_rcnn_box_predictor
+from object_detection.protos import box_predictor_pb2
+from object_detection.protos import hyperparams_pb2
+from object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf2(), 'Skipping TF1.X only Tests.')

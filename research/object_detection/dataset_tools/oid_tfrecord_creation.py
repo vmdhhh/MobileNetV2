@@ -21,8 +21,8 @@ from __future__ import print_function
 import six
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.core import standard_fields
-from research.object_detection.utils import dataset_util
+from object_detection.core import standard_fields
+from object_detection.utils import dataset_util
 
 
 def tf_example_from_annotations_data_frame(annotations_data_frame, label_map,

@@ -36,13 +36,13 @@ import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
 
-from research.object_detection.builders import hyperparams_builder
-from research.object_detection.models.keras_models import mobilenet_v1
-from research.object_detection.models.keras_models import model_utils
-from research.object_detection.models.keras_models import test_utils
-from research.object_detection.protos import hyperparams_pb2
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.builders import hyperparams_builder
+from object_detection.models.keras_models import mobilenet_v1
+from object_detection.models.keras_models import model_utils
+from object_detection.models.keras_models import test_utils
+from object_detection.protos import hyperparams_pb2
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 _KERAS_LAYERS_TO_CHECK = [
     'conv1_relu',

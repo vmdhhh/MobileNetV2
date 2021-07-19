@@ -29,8 +29,8 @@ from abc import abstractmethod
 import six
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.core import box_list_ops
-from research.object_detection.core import standard_fields as fields
+from object_detection.core import box_list_ops
+from object_detection.core import standard_fields as fields
 
 
 class RegionSimilarityCalculator(six.with_metaclass(ABCMeta, object)):

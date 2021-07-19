@@ -13,12 +13,12 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.grid_anchor_generator."""
+"""Tests for object_detection.grid_anchor_generator."""
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.anchor_generators import grid_anchor_generator
-from research.object_detection.utils import test_case
+from object_detection.anchor_generators import grid_anchor_generator
+from object_detection.utils import test_case
 
 
 class GridAnchorGeneratorTest(test_case.TestCase):

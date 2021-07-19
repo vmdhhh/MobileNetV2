@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package research.object_detection.protos;
+package object_detection.protos;
 
-import "research.object_detection/protos/hyperparams.proto";
+import "object_detection/protos/hyperparams.proto";
 
 // Configuration proto for box predictor. See core/box_predictor.py for details.
 message BoxPredictor {

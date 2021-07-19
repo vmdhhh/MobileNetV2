@@ -4,7 +4,7 @@
 
 The TensorFlow Object Detection API uses protobuf files to configure the
 training and evaluation process. The schema for the training pipeline can be
-found in research.object_detection/protos/pipeline.proto. At a high level, the config
+found in object_detection/protos/pipeline.proto. At a high level, the config
 file is split into 5 parts:
 
 1. The `model` configuration. This defines what type of model will be trained
@@ -54,7 +54,7 @@ recommended. Read [our paper](https://arxiv.org/abs/1611.10012) for a more
 detailed discussion on the speed vs accuracy tradeoff.
 
 To help new users get started, sample model configurations have been provided
-in the research.object_detection/samples/configs folder. The contents of these
+in the object_detection/samples/configs folder. The contents of these
 configuration files can be pasted into `model` field of the skeleton
 configuration. Users should note that the `num_classes` field should be changed
 to a value suited for the dataset the user is training on.
@@ -77,7 +77,7 @@ can both improve model accuracy and reduce training time.
 
 The format for these anchor box parameters differ depending on your model
 architecture. For details about all fields, see the [`anchor_generator`
-definition](https://github.com/tensorflow/models/blob/master/research/research.object_detection/protos/anchor_generator.proto).
+definition](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/anchor_generator.proto).
 On this page, we'll focus on parameters
 used in a traditional single shot detector (SSD) model and SSD models with a
 feature pyramid network (FPN) head.
@@ -129,7 +129,7 @@ model {
 }
 ```
 
-For more details, see [`ssd_anchor_generator.proto`](https://github.com/tensorflow/models/blob/master/research/research.object_detection/protos/ssd_anchor_generator.proto).
+For more details, see [`ssd_anchor_generator.proto`](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/ssd_anchor_generator.proto).
 
 **SSD with Feature Pyramid Network (FPN) head:**
 
@@ -156,7 +156,7 @@ model {
 }
 ```
 
-For more details, see [`multiscale_anchor_generator.proto`](https://github.com/tensorflow/models/blob/master/research/research.object_detection/protos/multiscale_anchor_generator.proto).
+For more details, see [`multiscale_anchor_generator.proto`](https://github.com/tensorflow/models/blob/master/research/object_detection/protos/multiscale_anchor_generator.proto).
 
 
 ## Defining Inputs

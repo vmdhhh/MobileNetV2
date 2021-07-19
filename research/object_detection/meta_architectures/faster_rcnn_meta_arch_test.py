@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.meta_architectures.faster_rcnn_meta_arch."""
+"""Tests for object_detection.meta_architectures.faster_rcnn_meta_arch."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -25,8 +25,8 @@ import numpy as np
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.meta_architectures import faster_rcnn_meta_arch_test_lib
-from research.object_detection.utils import test_utils
+from object_detection.meta_architectures import faster_rcnn_meta_arch_test_lib
+from object_detection.utils import test_utils
 
 
 class FasterRCNNMetaArchTest(

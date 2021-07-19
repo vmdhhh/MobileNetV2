@@ -1,6 +1,6 @@
 syntax = "proto2";
 
-package research.object_detection.protos;
+package object_detection.protos;
 
 // Configuration proto for GridAnchorGenerator. See
 // anchor_generators/grid_anchor_generator.py for details.

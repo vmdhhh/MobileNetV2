@@ -13,21 +13,21 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.core.target_assigner."""
+"""Tests for object_detection.core.target_assigner."""
 from absl.testing import parameterized
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.box_coders import keypoint_box_coder
-from research.object_detection.box_coders import mean_stddev_box_coder
-from research.object_detection.core import box_list
-from research.object_detection.core import region_similarity_calculator
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.core import target_assigner as targetassigner
-from research.object_detection.matchers import argmax_matcher
-from research.object_detection.utils import np_box_ops
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.box_coders import keypoint_box_coder
+from object_detection.box_coders import mean_stddev_box_coder
+from object_detection.core import box_list
+from object_detection.core import region_similarity_calculator
+from object_detection.core import standard_fields as fields
+from object_detection.core import target_assigner as targetassigner
+from object_detection.matchers import argmax_matcher
+from object_detection.utils import np_box_ops
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 
 class TargetAssignerTest(test_case.TestCase):

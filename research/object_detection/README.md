@@ -177,7 +177,7 @@ We have provided code for generating data with associated context
 
 Snapshot Serengeti-trained Faster R-CNN and Context R-CNN models can be found in
 the
-[model zoo](https://github.com/tensorflow/models/blob/master/research/research.object_detection/g3doc/tf1_detection_zoo.md#snapshot-serengeti-camera-trap-trained-models).
+[model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#snapshot-serengeti-camera-trap-trained-models).
 
 A colab demonstrating Context R-CNN is provided
 [here](colab_tutorials/context_rcnn_tutorial.ipynb).
@@ -198,7 +198,7 @@ the tags "tensorflow" and "object-detection".
 Please report bugs (actually broken code, not usage questions) to the
 tensorflow/models GitHub
 [issue tracker](https://github.com/tensorflow/models/issues), prefixing the
-issue name with "research.object_detection".
+issue name with "object_detection".
 
 Please check the [FAQ](g3doc/faq.md) for frequently asked questions before
 reporting an issue.

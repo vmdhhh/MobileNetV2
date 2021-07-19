@@ -21,40 +21,40 @@ DetectionModel.
 import logging
 import tensorflow.compat.v1 as tf
 
-from research.object_detection import eval_util
-from research.object_detection.core import prefetcher
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.metrics import coco_evaluation
-from research.object_detection.utils import research.object_detection_evaluation
+from object_detection import eval_util
+from object_detection.core import prefetcher
+from object_detection.core import standard_fields as fields
+from object_detection.metrics import coco_evaluation
+from object_detection.utils import object_detection_evaluation
 
 # A dictionary of metric names to classes that implement the metric. The classes
 # in the dictionary must implement
-# utils.research.object_detection_evaluation.DetectionEvaluator interface.
+# utils.object_detection_evaluation.DetectionEvaluator interface.
 EVAL_METRICS_CLASS_DICT = {
     'pascal_voc_detection_metrics':
-        research.object_detection_evaluation.PascalDetectionEvaluator,
+        object_detection_evaluation.PascalDetectionEvaluator,
     'weighted_pascal_voc_detection_metrics':
-        research.object_detection_evaluation.WeightedPascalDetectionEvaluator,
+        object_detection_evaluation.WeightedPascalDetectionEvaluator,
     'pascal_voc_instance_segmentation_metrics':
-        research.object_detection_evaluation.PascalInstanceSegmentationEvaluator,
+        object_detection_evaluation.PascalInstanceSegmentationEvaluator,
     'weighted_pascal_voc_instance_segmentation_metrics':
-        research.object_detection_evaluation.WeightedPascalInstanceSegmentationEvaluator,
+        object_detection_evaluation.WeightedPascalInstanceSegmentationEvaluator,
     'oid_V2_detection_metrics':
-        research.object_detection_evaluation.OpenImagesDetectionEvaluator,
+        object_detection_evaluation.OpenImagesDetectionEvaluator,
     # DEPRECATED: please use oid_V2_detection_metrics instead
     'open_images_V2_detection_metrics':
-        research.object_detection_evaluation.OpenImagesDetectionEvaluator,
+        object_detection_evaluation.OpenImagesDetectionEvaluator,
     'coco_detection_metrics':
         coco_evaluation.CocoDetectionEvaluator,
     'coco_mask_metrics':
         coco_evaluation.CocoMaskEvaluator,
     'oid_challenge_detection_metrics':
-        research.object_detection_evaluation.OpenImagesDetectionChallengeEvaluator,
+        object_detection_evaluation.OpenImagesDetectionChallengeEvaluator,
     # DEPRECATED: please use oid_challenge_detection_metrics instead
-    'oid_challenge_research.object_detection_metrics':
-        research.object_detection_evaluation.OpenImagesDetectionChallengeEvaluator,
+    'oid_challenge_object_detection_metrics':
+        object_detection_evaluation.OpenImagesDetectionChallengeEvaluator,
     'oid_challenge_segmentation_metrics':
-        research.object_detection_evaluation
+        object_detection_evaluation
         .OpenImagesInstanceSegmentationChallengeEvaluator,
 }
 
@@ -156,9 +156,9 @@ def get_evaluators(eval_config, categories):
   for eval_metric_fn_key in eval_metric_fn_keys:
     if eval_metric_fn_key not in EVAL_METRICS_CLASS_DICT:
       raise ValueError('Metric not found: {}'.format(eval_metric_fn_key))
-    if eval_metric_fn_key == 'oid_challenge_research.object_detection_metrics':
+    if eval_metric_fn_key == 'oid_challenge_object_detection_metrics':
       logging.warning(
-          'oid_challenge_research.object_detection_metrics is deprecated; '
+          'oid_challenge_object_detection_metrics is deprecated; '
           'use oid_challenge_detection_metrics instead'
       )
     if eval_metric_fn_key == 'oid_V2_detection_metrics':

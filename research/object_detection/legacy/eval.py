@@ -46,12 +46,12 @@ import functools
 import os
 import tensorflow.compat.v1 as tf
 from tensorflow.python.util.deprecation import deprecated
-from research.object_detection.builders import dataset_builder
-from research.object_detection.builders import graph_rewriter_builder
-from research.object_detection.builders import model_builder
-from research.object_detection.legacy import evaluator
-from research.object_detection.utils import config_util
-from research.object_detection.utils import label_map_util
+from object_detection.builders import dataset_builder
+from object_detection.builders import graph_rewriter_builder
+from object_detection.builders import model_builder
+from object_detection.legacy import evaluator
+from object_detection.utils import config_util
+from object_detection.utils import label_map_util
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -80,7 +80,7 @@ flags.DEFINE_boolean(
 FLAGS = flags.FLAGS
 
 
-@deprecated(None, 'Use research.object_detection/model_main.py.')
+@deprecated(None, 'Use object_detection/model_main.py.')
 def main(unused_argv):
   assert FLAGS.checkpoint_dir, '`checkpoint_dir` is missing.'
   assert FLAGS.eval_dir, '`eval_dir` is missing.'

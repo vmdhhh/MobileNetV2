@@ -14,7 +14,7 @@
 # ==============================================================================
 """Records previous preprocessing operations and allows them to be repeated.
 
-Used with research.object_detection.core.preprocessor. Passing a PreprocessorCache
+Used with object_detection.core.preprocessor. Passing a PreprocessorCache
 into individual data augmentation functions or the general preprocess() function
 will store all randomly generated variables in the PreprocessorCache. When
 a preprocessor function is called multiple times with the same

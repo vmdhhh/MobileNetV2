@@ -19,7 +19,7 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 
 import tensorflow.compat.v1 as tf
-from research.object_detection.core import matcher
+from object_detection.core import matcher
 
 
 class HungarianBipartiteMatcher(matcher.Matcher):

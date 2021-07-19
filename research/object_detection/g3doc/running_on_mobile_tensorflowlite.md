@@ -28,12 +28,12 @@ export OUTPUT_DIR=/tmp/tflite
 We start with a checkpoint and get a TensorFlow frozen graph with compatible ops
 that we can use with TensorFlow Lite. First, you’ll need to install these
 [python
-libraries](https://github.com/tensorflow/models/blob/master/research/research.object_detection/g3doc/installation.md).
+libraries](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md).
 Then to get the frozen graph, run the export_tflite_ssd_graph.py script from the
 `models/research` directory with this command:
 
 ```shell
-research.object_detection/export_tflite_ssd_graph.py \
+object_detection/export_tflite_ssd_graph.py \
 --pipeline_config_path=$CONFIG_FILE \
 --trained_checkpoint_prefix=$CHECKPOINT_PATH \
 --output_directory=$OUTPUT_DIR \
@@ -102,21 +102,21 @@ To run our TensorFlow Lite model on device, we will use Android Studio to build
 and run the TensorFlow Lite detection example with the new model. The example is
 found in the
 [TensorFlow examples repository](https://github.com/tensorflow/examples) under
-`/lite/examples/research.object_detection`. The example can be built with
+`/lite/examples/object_detection`. The example can be built with
 [Android Studio](https://developer.android.com/studio/index.html), and requires
 the
 [Android SDK with build tools](https://developer.android.com/tools/revisions/build-tools.html)
 that support API >= 21. Additional details are available on the
-[TensorFlow Lite example page](https://github.com/tensorflow/examples/tree/master/lite/examples/research.object_detection/android).
+[TensorFlow Lite example page](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android).
 
 Next we need to point the app to our new detect.tflite file and give it the
 names of our new labels. Specifically, we will copy our TensorFlow Lite
 flatbuffer to the app assets directory with the following command:
 
 ```shell
-mkdir $TF_EXAMPLES/lite/examples/research.object_detection/android/app/src/main/assets
+mkdir $TF_EXAMPLES/lite/examples/object_detection/android/app/src/main/assets
 cp /tmp/tflite/detect.tflite \
-  $TF_EXAMPLES/lite/examples/research.object_detection/android/app/src/main/assets
+  $TF_EXAMPLES/lite/examples/object_detection/android/app/src/main/assets
 ```
 
 You will also need to copy your new labelmap labelmap.txt to the assets
@@ -124,7 +124,7 @@ directory.
 
 We will now edit the gradle build file to use these assets. First, open the
 `build.gradle` file
-`$TF_EXAMPLES/lite/examples/research.object_detection/android/app/build.gradle`. Comment
+`$TF_EXAMPLES/lite/examples/object_detection/android/app/build.gradle`. Comment
 out the model download script to avoid your assets being overwritten: `// apply
 from:'download_model.gradle'` ```
 
@@ -132,7 +132,7 @@ If your model is named `detect.tflite`, and your labels file `labelmap.txt`, the
 example will use them automatically as long as they've been properly copied into
 the base assets directory. If you need to use a custom path or filename, open up
 the
-$TF_EXAMPLES/lite/examples/research.object_detection/android/app/src/main/java/org/tensorflow/demo/DetectorActivity.java
+$TF_EXAMPLES/lite/examples/object_detection/android/app/src/main/java/org/tensorflow/demo/DetectorActivity.java
 file in a text editor and find the definition of TF_OD_API_LABELS_FILE. Update
 this path to point to your new label map file:
 "labels_list.txt". Note that if your model is quantized,

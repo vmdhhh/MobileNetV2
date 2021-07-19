@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.predictors.convolutional_box_predictor."""
+"""Tests for object_detection.predictors.convolutional_box_predictor."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -27,15 +27,15 @@ from six.moves import zip
 import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
-from research.object_detection.builders import box_predictor_builder
-from research.object_detection.builders import hyperparams_builder
-from research.object_detection.predictors import convolutional_box_predictor as box_predictor
-from research.object_detection.predictors.heads import box_head
-from research.object_detection.predictors.heads import class_head
-from research.object_detection.predictors.heads import mask_head
-from research.object_detection.protos import hyperparams_pb2
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.builders import box_predictor_builder
+from object_detection.builders import hyperparams_builder
+from object_detection.predictors import convolutional_box_predictor as box_predictor
+from object_detection.predictors.heads import box_head
+from object_detection.predictors.heads import class_head
+from object_detection.predictors.heads import mask_head
+from object_detection.protos import hyperparams_pb2
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf2(), 'Skipping TF1.X only test.')

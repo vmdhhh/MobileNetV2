@@ -56,7 +56,7 @@ images will be labeled 'empty' with class id 0.
 To generate TfRecords from your database and local image folder, run
 
 ```
-python research.object_detection/dataset_tools/context_rcnn/create_cococameratraps_tfexample_main.py \
+python object_detection/dataset_tools/context_rcnn/create_cococameratraps_tfexample_main.py \
   --alsologtostderr \
   --output_tfrecord_prefix="/path/to/output/tfrecord/location/prefix" \
   --image_directory="/path/to/image/folder/" \
@@ -76,7 +76,7 @@ and match the boxes to the image-level class label.
 To export your pretrained detection model, run
 
 ```
-python research.object_detection/export_inference_graph.py \
+python object_detection/export_inference_graph.py \
   --alsologtostderr \
   --input_type tf_example \
   --pipeline_config_path path/to/faster_rcnn_model.config \
@@ -87,7 +87,7 @@ python research.object_detection/export_inference_graph.py \
 To add bounding boxes to your dataset using the above model, run
 
 ```
-python research.object_detection/dataset_tools/context_rcnn/generate_detection_data.py \
+python object_detection/dataset_tools/context_rcnn/generate_detection_data.py \
   --alsologtostderr \
   --input_tfrecord path/to/input_tfrecord@X \
   --output_tfrecord path/to/output_tfrecord@X \
@@ -107,7 +107,7 @@ trained on data from your classes of interest.
 To export your pretrained detection model, run
 
 ```
-python research.object_detection/export_inference_graph.py \
+python object_detection/export_inference_graph.py \
   --alsologtostderr \
   --input_type tf_example \
   --pipeline_config_path path/to/pipeline.config \
@@ -123,7 +123,7 @@ output, but it does not need to be set during training.
 To generate and save contextual features for your data, run
 
 ```
-python research.object_detection/dataset_tools/context_rcnn/generate_embedding_data.py \
+python object_detection/dataset_tools/context_rcnn/generate_embedding_data.py \
   --alsologtostderr \
   --embedding_input_tfrecord path/to/input_tfrecords* \
   --embedding_output_tfrecord path/to/output_tfrecords \
@@ -136,7 +136,7 @@ To build the context features you just added for each image into memory banks,
 run
 
 ```
-python research.object_detection/dataset_tools/context_rcnn/add_context_to_examples.py \
+python object_detection/dataset_tools/context_rcnn/add_context_to_examples.py \
   --input_tfrecord path/to/input_tfrecords* \
   --output_tfrecord path/to/output_tfrecords \
   --sequence_key image/location \
@@ -155,7 +155,7 @@ tf_example`.
 If you use TfSequenceExamples, you must be sure to set `input_type:
 TF_SEQUENCE_EXAMPLE` within your Context R-CNN configs for both
 train_input_reader and test_input_reader. See
-`research.object_detection/test_data/context_rcnn_camera_trap.config`
+`object_detection/test_data/context_rcnn_camera_trap.config`
 for an example.
 
 ## Training a Context R-CNN Model

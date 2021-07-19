@@ -1,11 +1,11 @@
 syntax = "proto2";
 
-package research.object_detection.protos;
+package object_detection.protos;
 
-import "research.object_detection/protos/image_resizer.proto";
-import "research.object_detection/protos/losses.proto";
-import "research.object_detection/protos/post_processing.proto";
-import "research.object_detection/protos/preprocessor.proto";
+import "object_detection/protos/image_resizer.proto";
+import "object_detection/protos/losses.proto";
+import "object_detection/protos/post_processing.proto";
+import "object_detection/protos/preprocessor.proto";
 
 // Configuration for the CenterNet meta architecture from the "Objects as
 // Points" paper [1]
@@ -74,7 +74,7 @@ message CenterNet {
     // head.
     optional PredictionHeadParams offset_head_params = 10;
   }
-  optional ObjectDetection research.object_detection_task = 4;
+  optional ObjectDetection object_detection_task = 4;
 
   // Parameters related to object center prediction. This is required for both
   // object detection and keypoint estimation tasks.

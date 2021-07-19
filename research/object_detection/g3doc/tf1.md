@@ -23,7 +23,7 @@ git clone https://github.com/tensorflow/models.git
 
 ```bash
 # From the root of the git repository
-docker build -f research/research.object_detection/dockerfiles/tf1/Dockerfile -t od .
+docker build -f research/object_detection/dockerfiles/tf1/Dockerfile -t od .
 docker run -it od
 ```
 
@@ -32,22 +32,22 @@ docker run -it od
 ```bash
 cd models/research
 # Compile protos.
-protoc research.object_detection/protos/*.proto --python_out=.
+protoc object_detection/protos/*.proto --python_out=.
 # Install TensorFlow Object Detection API.
-cp research.object_detection/packages/tf1/setup.py .
+cp object_detection/packages/tf1/setup.py .
 python -m pip install --use-feature=2020-resolver .
 ```
 
 ```bash
 # Test the installation.
-python research.object_detection/builders/model_builder_tf1_test.py
+python object_detection/builders/model_builder_tf1_test.py
 ```
 
 ## Quick Start
 
 ### Colabs
 
-*   [Jupyter notebook for off-the-shelf inference](../colab_tutorials/research.object_detection_tutorial.ipynb)
+*   [Jupyter notebook for off-the-shelf inference](../colab_tutorials/object_detection_tutorial.ipynb)
 *   [Training a pet detector](running_pets.md)
 
 ### Training and Evaluation

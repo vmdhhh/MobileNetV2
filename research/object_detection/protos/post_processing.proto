@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package research.object_detection.protos;
+package object_detection.protos;
 
-import "research.object_detection/protos/calibration.proto";
+import "object_detection/protos/calibration.proto";
 
 // Configuration proto for non-max-suppression operation on a batch of
 // detections.

@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-r"""Convert raw KITTI detection dataset to TFRecord for research.object_detection.
+r"""Convert raw KITTI detection dataset to TFRecord for object_detection.
 
 Converts KITTI detection dataset to TFRecords with a standard format allowing
   to use this dataset to train object detectors. The raw dataset can be
@@ -27,7 +27,7 @@ Converts KITTI detection dataset to TFRecords with a standard format allowing
   This can be altered using the flags, see details below.
 
 Example usage:
-    python research.object_detection/dataset_tools/create_kitti_tf_record.py \
+    python object_detection/dataset_tools/create_kitti_tf_record.py \
         --data_dir=/home/user/kitti \
         --output_path=/home/user/kitti.record
 """
@@ -44,9 +44,9 @@ import numpy as np
 import PIL.Image as pil
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import dataset_util
-from research.object_detection.utils import label_map_util
-from research.object_detection.utils.np_box_ops import iou
+from object_detection.utils import dataset_util
+from object_detection.utils import label_map_util
+from object_detection.utils.np_box_ops import iou
 
 tf.app.flags.DEFINE_string('data_dir', '', 'Location of root directory for the '
                            'data. Folder structure is assumed to be:'

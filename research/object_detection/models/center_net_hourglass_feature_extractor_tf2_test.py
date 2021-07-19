@@ -17,10 +17,10 @@ import unittest
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.models import center_net_hourglass_feature_extractor as hourglass
-from research.object_detection.models.keras_models import hourglass_network
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.models import center_net_hourglass_feature_extractor as hourglass
+from object_detection.models.keras_models import hourglass_network
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf1(), 'Skipping TF2.X only test.')

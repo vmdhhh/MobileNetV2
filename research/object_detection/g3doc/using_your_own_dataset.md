@@ -11,7 +11,7 @@ This document outlines how to write a script to generate the TFRecord file.
 Each dataset is required to have a label map associated with it. This label map
 defines a mapping from string class names to integer class Ids. The label map
 should be a `StringIntLabelMap` text protobuf. Sample label maps can be found in
-research.object_detection/data. Label maps should always start from id 1.
+object_detection/data. Label maps should always start from id 1.
 
 ## Dataset Requirements
 
@@ -96,7 +96,7 @@ A typical conversion script will look like the following:
 
 import tensorflow as tf
 
-from research.object_detection.utils import dataset_util
+from object_detection.utils import dataset_util
 
 
 flags = tf.app.flags
@@ -177,7 +177,7 @@ Instead of writing all tf.Example protos to a single file as shown in
 
 ```python
 import contextlib2
-from research.object_detection.dataset_tools import tf_record_creation_util
+from object_detection.dataset_tools import tf_record_creation_util
 
 num_shards=10
 output_filebase='/path/to/train_dataset.record'

@@ -22,15 +22,15 @@ from absl.testing import parameterized
 import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
-from research.object_detection.builders import model_builder
-from research.object_detection.builders import model_builder_test
-from research.object_detection.core import losses
-from research.object_detection.meta_architectures import deepmac_meta_arch
-from research.object_detection.models import center_net_hourglass_feature_extractor
-from research.object_detection.models.keras_models import hourglass_network
-from research.object_detection.protos import center_net_pb2
-from research.object_detection.protos import model_pb2
-from research.object_detection.utils import tf_version
+from object_detection.builders import model_builder
+from object_detection.builders import model_builder_test
+from object_detection.core import losses
+from object_detection.meta_architectures import deepmac_meta_arch
+from object_detection.models import center_net_hourglass_feature_extractor
+from object_detection.models.keras_models import hourglass_network
+from object_detection.protos import center_net_pb2
+from object_detection.protos import model_pb2
+from object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf1(), 'Skipping TF2.X only test.')
@@ -191,7 +191,7 @@ class ModelBuilderTF2Test(
     return text_format.Merge(proto_txt,
                              center_net_pb2.CenterNet.ObjectCenterParams())
 
-  def get_fake_research.object_detection_proto(self, customize_head_params=False):
+  def get_fake_object_detection_proto(self, customize_head_params=False):
     proto_txt = """
       task_loss_weight: 0.5
       offset_loss_weight: 0.1
@@ -286,8 +286,8 @@ class ModelBuilderTF2Test(
     config.center_net.object_center_params.CopyFrom(
         self.get_fake_object_center_proto(
             customize_head_params=customize_head_params))
-    config.center_net.research.object_detection_task.CopyFrom(
-        self.get_fake_research.object_detection_proto(
+    config.center_net.object_detection_task.CopyFrom(
+        self.get_fake_object_detection_proto(
             customize_head_params=customize_head_params))
     config.center_net.keypoint_estimation_task.append(
         self.get_fake_keypoint_proto(
@@ -523,7 +523,7 @@ class ModelBuilderTF2Test(
             pad_to_max_dimension: true
           }
         }
-        research.object_detection_task {
+        object_detection_task {
           task_loss_weight: 1.0
           offset_loss_weight: 1.0
           scale_loss_weight: 0.1

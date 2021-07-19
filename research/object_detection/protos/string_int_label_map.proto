@@ -4,7 +4,7 @@
 // and forth as needed.
 syntax = "proto2";
 
-package research.object_detection.protos;
+package object_detection.protos;
 
 // LVIS frequency:
 enum LVISFrequency {

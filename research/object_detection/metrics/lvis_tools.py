@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Wrappers for third party lvis to be used within research.object_detection.
+"""Wrappers for third party lvis to be used within object_detection.
 
 Usage example: given a set of images with ids in the list image_ids
 and corresponding lists of numpy arrays encoding groundtruth (boxes,

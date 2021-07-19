@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for research.object_detection.export_tflite_ssd_graph."""
+"""Tests for object_detection.export_tflite_ssd_graph."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -25,15 +25,15 @@ import tensorflow.compat.v1 as tf
 import tf_slim as slim
 
 from tensorflow.core.framework import types_pb2
-from research.object_detection import export_tflite_ssd_graph_lib
-from research.object_detection import exporter
-from research.object_detection.builders import graph_rewriter_builder
-from research.object_detection.builders import model_builder
-from research.object_detection.core import model
-from research.object_detection.protos import graph_rewriter_pb2
-from research.object_detection.protos import pipeline_pb2
-from research.object_detection.protos import post_processing_pb2
-from research.object_detection.utils import tf_version
+from object_detection import export_tflite_ssd_graph_lib
+from object_detection import exporter
+from object_detection.builders import graph_rewriter_builder
+from object_detection.builders import model_builder
+from object_detection.core import model
+from object_detection.protos import graph_rewriter_pb2
+from object_detection.protos import pipeline_pb2
+from object_detection.protos import post_processing_pb2
+from object_detection.utils import tf_version
 
 # pylint: disable=g-import-not-at-top
 

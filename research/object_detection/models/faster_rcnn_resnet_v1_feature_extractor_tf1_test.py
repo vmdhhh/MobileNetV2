@@ -13,13 +13,13 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.models.faster_rcnn_resnet_v1_feature_extractor."""
+"""Tests for object_detection.models.faster_rcnn_resnet_v1_feature_extractor."""
 import unittest
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.models import faster_rcnn_resnet_v1_feature_extractor as faster_rcnn_resnet_v1
-from research.object_detection.utils import tf_version
+from object_detection.models import faster_rcnn_resnet_v1_feature_extractor as faster_rcnn_resnet_v1
+from object_detection.utils import tf_version
 
 
 @unittest.skipIf(tf_version.is_tf2(), 'Skipping TF1.X only test.')

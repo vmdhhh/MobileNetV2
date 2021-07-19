@@ -35,9 +35,9 @@ import numpy as np
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.models.keras_models import inception_resnet_v2
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.models.keras_models import inception_resnet_v2
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 _KERAS_TO_SLIM_ENDPOINT_NAMES = {
     'activation': 'Conv2d_1a_3x3',

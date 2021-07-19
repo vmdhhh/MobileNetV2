@@ -13,13 +13,13 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.core.box_list_ops."""
+"""Tests for object_detection.core.box_list_ops."""
 import numpy as np
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.utils import test_case
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.utils import test_case
 
 
 class BoxListOpsTest(test_case.TestCase):

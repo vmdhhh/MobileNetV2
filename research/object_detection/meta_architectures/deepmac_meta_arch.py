@@ -8,19 +8,19 @@ import collections
 import numpy as np
 import tensorflow as tf
 
-from research.object_detection.builders import losses_builder
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.core import losses
-from research.object_detection.core import preprocessor
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.meta_architectures import center_net_meta_arch
-from research.object_detection.models.keras_models import hourglass_network
-from research.object_detection.models.keras_models import resnet_v1
-from research.object_detection.protos import losses_pb2
-from research.object_detection.protos import preprocessor_pb2
-from research.object_detection.utils import shape_utils
-from research.object_detection.utils import spatial_transform_ops
+from object_detection.builders import losses_builder
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.core import losses
+from object_detection.core import preprocessor
+from object_detection.core import standard_fields as fields
+from object_detection.meta_architectures import center_net_meta_arch
+from object_detection.models.keras_models import hourglass_network
+from object_detection.models.keras_models import resnet_v1
+from object_detection.protos import losses_pb2
+from object_detection.protos import preprocessor_pb2
+from object_detection.utils import shape_utils
+from object_detection.utils import spatial_transform_ops
 
 
 INSTANCE_EMBEDDING = 'INSTANCE_EMBEDDING'
@@ -396,7 +396,7 @@ class DeepMACMetaArch(center_net_meta_arch.CenterNetMetaArch):
                feature_extractor,
                image_resizer_fn,
                object_center_params,
-               research.object_detection_params,
+               object_detection_params,
                deepmac_params,
                compute_heatmap_sparse=False):
     """Constructs the super class with object center & detection params only."""
@@ -407,7 +407,7 @@ class DeepMACMetaArch(center_net_meta_arch.CenterNetMetaArch):
         num_classes=num_classes, feature_extractor=feature_extractor,
         image_resizer_fn=image_resizer_fn,
         object_center_params=object_center_params,
-        research.object_detection_params=research.object_detection_params,
+        object_detection_params=object_detection_params,
         compute_heatmap_sparse=compute_heatmap_sparse)
 
   def _construct_prediction_heads(self, num_classes, num_feature_outputs,

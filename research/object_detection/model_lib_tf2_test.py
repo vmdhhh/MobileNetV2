@@ -27,13 +27,13 @@ import six
 import tensorflow.compat.v1 as tf
 import tensorflow.compat.v2 as tf2
 
-from research.object_detection import exporter_lib_v2
-from research.object_detection import inputs
-from research.object_detection import model_lib_v2
-from research.object_detection.core import model
-from research.object_detection.protos import train_pb2
-from research.object_detection.utils import config_util
-from research.object_detection.utils import tf_version
+from object_detection import exporter_lib_v2
+from object_detection import inputs
+from object_detection import model_lib_v2
+from object_detection.core import model
+from object_detection.protos import train_pb2
+from object_detection.utils import config_util
+from object_detection.utils import tf_version
 
 if six.PY2:
   import mock  # pylint: disable=g-importing-member,g-import-not-at-top

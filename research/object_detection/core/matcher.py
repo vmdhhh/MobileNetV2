@@ -39,7 +39,7 @@ import abc
 import six
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import ops
+from object_detection.utils import ops
 
 
 class Match(object):

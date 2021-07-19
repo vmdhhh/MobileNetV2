@@ -26,12 +26,12 @@ import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
 
-from research.object_detection.builders import dataset_builder
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.dataset_tools import seq_example_util
-from research.object_detection.protos import input_reader_pb2
-from research.object_detection.utils import dataset_util
-from research.object_detection.utils import test_case
+from object_detection.builders import dataset_builder
+from object_detection.core import standard_fields as fields
+from object_detection.dataset_tools import seq_example_util
+from object_detection.protos import input_reader_pb2
+from object_detection.utils import dataset_util
+from object_detection.utils import test_case
 
 # pylint: disable=g-import-not-at-top
 try:

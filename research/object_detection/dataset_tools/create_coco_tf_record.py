@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-r"""Convert raw COCO dataset to TFRecord for research.object_detection.
+r"""Convert raw COCO dataset to TFRecord for object_detection.
 
 This tool supports data generation for object detection (boxes, masks),
 keypoint detection, and DensePose.
@@ -45,9 +45,9 @@ import PIL.Image
 from pycocotools import mask
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.dataset_tools import tf_record_creation_util
-from research.object_detection.utils import dataset_util
-from research.object_detection.utils import label_map_util
+from object_detection.dataset_tools import tf_record_creation_util
+from object_detection.utils import dataset_util
+from object_detection.utils import label_map_util
 
 flags = tf.app.flags
 tf.flags.DEFINE_boolean(

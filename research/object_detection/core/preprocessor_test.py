@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.core.preprocessor."""
+"""Tests for object_detection.core.preprocessor."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -27,11 +27,11 @@ from six.moves import range
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.core import preprocessor
-from research.object_detection.core import preprocessor_cache
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
+from object_detection.core import preprocessor
+from object_detection.core import preprocessor_cache
+from object_detection.core import standard_fields as fields
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
 
 if six.PY2:
   import mock  # pylint: disable=g-import-not-at-top

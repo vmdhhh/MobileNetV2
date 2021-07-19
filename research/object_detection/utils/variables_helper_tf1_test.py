@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.utils.variables_helper."""
+"""Tests for object_detection.utils.variables_helper."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -23,9 +23,9 @@ import os
 import unittest
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import test_case
-from research.object_detection.utils import tf_version
-from research.object_detection.utils import variables_helper
+from object_detection.utils import test_case
+from object_detection.utils import tf_version
+from object_detection.utils import variables_helper
 
 
 @unittest.skipIf(tf_version.is_tf2(), 'Skipping TF1.X only test.')

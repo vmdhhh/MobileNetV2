@@ -78,16 +78,16 @@ from six.moves import zip
 import tensorflow.compat.v1 as tf
 
 from tensorflow.python.ops import control_flow_ops
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.core import densepose_ops
-from research.object_detection.core import keypoint_ops
-from research.object_detection.core import preprocessor_cache
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.utils import autoaugment_utils
-from research.object_detection.utils import ops
-from research.object_detection.utils import patch_ops
-from research.object_detection.utils import shape_utils
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.core import densepose_ops
+from object_detection.core import keypoint_ops
+from object_detection.core import preprocessor_cache
+from object_detection.core import standard_fields as fields
+from object_detection.utils import autoaugment_utils
+from object_detection.utils import ops
+from object_detection.utils import patch_ops
+from object_detection.utils import shape_utils
 
 
 def _apply_with_random_selector(x,

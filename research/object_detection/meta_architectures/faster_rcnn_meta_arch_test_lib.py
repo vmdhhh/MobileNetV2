@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.meta_architectures.faster_rcnn_meta_arch."""
+"""Tests for object_detection.meta_architectures.faster_rcnn_meta_arch."""
 import functools
 from absl.testing import parameterized
 
@@ -22,23 +22,23 @@ import six
 import tensorflow.compat.v1 as tf
 
 from google.protobuf import text_format
-from research.object_detection.anchor_generators import grid_anchor_generator
-from research.object_detection.anchor_generators import multiscale_grid_anchor_generator
-from research.object_detection.builders import box_predictor_builder
-from research.object_detection.builders import hyperparams_builder
-from research.object_detection.builders import post_processing_builder
-from research.object_detection.core import balanced_positive_negative_sampler as sampler
-from research.object_detection.core import losses
-from research.object_detection.core import post_processing
-from research.object_detection.core import target_assigner
-from research.object_detection.meta_architectures import faster_rcnn_meta_arch
-from research.object_detection.protos import box_predictor_pb2
-from research.object_detection.protos import hyperparams_pb2
-from research.object_detection.protos import post_processing_pb2
-from research.object_detection.utils import spatial_transform_ops as spatial_ops
-from research.object_detection.utils import test_case
-from research.object_detection.utils import test_utils
-from research.object_detection.utils import tf_version
+from object_detection.anchor_generators import grid_anchor_generator
+from object_detection.anchor_generators import multiscale_grid_anchor_generator
+from object_detection.builders import box_predictor_builder
+from object_detection.builders import hyperparams_builder
+from object_detection.builders import post_processing_builder
+from object_detection.core import balanced_positive_negative_sampler as sampler
+from object_detection.core import losses
+from object_detection.core import post_processing
+from object_detection.core import target_assigner
+from object_detection.meta_architectures import faster_rcnn_meta_arch
+from object_detection.protos import box_predictor_pb2
+from object_detection.protos import hyperparams_pb2
+from object_detection.protos import post_processing_pb2
+from object_detection.utils import spatial_transform_ops as spatial_ops
+from object_detection.utils import test_case
+from object_detection.utils import test_utils
+from object_detection.utils import tf_version
 
 # pylint: disable=g-import-not-at-top
 try:

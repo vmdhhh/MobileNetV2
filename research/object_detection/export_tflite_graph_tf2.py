@@ -16,7 +16,7 @@
 r"""Exports TF2 detection SavedModel for conversion to TensorFlow Lite.
 
 Link to the TF2 Detection Zoo:
-https://github.com/tensorflow/models/blob/master/research/research.object_detection/g3doc/tf2_detection_zoo.md
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
 The output folder will contain an intermediate SavedModel that can be used with
 the TfLite converter.
 
@@ -26,7 +26,7 @@ One input:
   image: a float32 tensor of shape[1, height, width, 3] containing the
   *normalized* input image.
   NOTE: See the `preprocess` function defined in the feature extractor class
-  in the research.object_detection/models directory.
+  in the object_detection/models directory.
 
 Four Outputs:
   detection_boxes: a float32 tensor of shape [1, num_boxes, 4] with box
@@ -39,7 +39,7 @@ Four Outputs:
 
 Example Usage:
 --------------
-python research.object_detection/export_tflite_graph_tf2.py \
+python object_detection/export_tflite_graph_tf2.py \
     --pipeline_config_path path/to/ssd_model/pipeline.config \
     --trained_checkpoint_dir path/to/ssd_model/checkpoint \
     --output_directory path/to/exported_model_directory
@@ -55,7 +55,7 @@ eval config.
 
 Example Usage 1 (in which we change the NMS iou_threshold to be 0.5 and
 NMS score_threshold to be 0.0):
-python research.object_detection/export_tflite_model_tf2.py \
+python object_detection/export_tflite_model_tf2.py \
     --pipeline_config_path path/to/ssd_model/pipeline.config \
     --trained_checkpoint_dir path/to/ssd_model/checkpoint \
     --output_directory path/to/exported_model_directory
@@ -74,7 +74,7 @@ python research.object_detection/export_tflite_model_tf2.py \
 
 Example Usage 2 (export CenterNet model for keypoint estimation task with fixed
 shape resizer and customized input resolution):
-python research.object_detection/export_tflite_model_tf2.py \
+python object_detection/export_tflite_model_tf2.py \
     --pipeline_config_path path/to/ssd_model/pipeline.config \
     --trained_checkpoint_dir path/to/ssd_model/checkpoint \
     --output_directory path/to/exported_model_directory \
@@ -98,8 +98,8 @@ from absl import flags
 
 import tensorflow.compat.v2 as tf
 from google.protobuf import text_format
-from research.object_detection import export_tflite_graph_lib_tf2
-from research.object_detection.protos import pipeline_pb2
+from object_detection import export_tflite_graph_lib_tf2
+from object_detection.protos import pipeline_pb2
 
 tf.enable_v2_behavior()
 

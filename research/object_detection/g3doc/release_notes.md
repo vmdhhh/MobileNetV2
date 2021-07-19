@@ -84,7 +84,7 @@ We have provided code for generating data with associated context
 
 Snapshot Serengeti-trained Faster R-CNN and Context R-CNN models can be found in
 the
-[model zoo](https://github.com/tensorflow/models/blob/master/research/research.object_detection/g3doc/tf1_detection_zoo.md#snapshot-serengeti-camera-trap-trained-models).
+[model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf1_detection_zoo.md#snapshot-serengeti-camera-trap-trained-models).
 
 A colab demonstrating Context R-CNN is provided
 [here](../colab_tutorials/context_rcnn_tutorial.ipynb).
@@ -346,7 +346,7 @@ includes:
     *   Faster RCNN with Inception Resnet v2
 *   Frozen weights (trained on the COCO dataset) for each of the above models to
     be used for out-of-the-box inference purposes.
-*   A [Jupyter notebook](../colab_tutorials/research.object_detection_tutorial.ipynb) for
+*   A [Jupyter notebook](../colab_tutorials/object_detection_tutorial.ipynb) for
     performing out-of-the-box inference with one of our released models
 *   Convenient training and evaluation
     [instructions](tf1_training_and_evaluation.md) for local runs and Google

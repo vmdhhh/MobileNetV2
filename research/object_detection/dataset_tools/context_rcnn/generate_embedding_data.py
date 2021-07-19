@@ -22,14 +22,14 @@ position of the object of interest. By default, only the highest-scoring object
 embedding is included.
 
 Steps to generate a embedding dataset:
-1. Use research.object_detection/export_inference_graph.py to get a Faster R-CNN
+1. Use object_detection/export_inference_graph.py to get a Faster R-CNN
   `saved_model` for inference. The input node must accept a tf.Example proto.
 2. Run this tool with `saved_model` from step 1 and an TFRecord of tf.Example
   protos containing images for inference.
 
 Example Usage:
 --------------
-python tensorflow_models/research.object_detection/export_inference_graph.py \
+python tensorflow_models/object_detection/export_inference_graph.py \
     --alsologtostderr \
     --input_type tf_example \
     --pipeline_config_path path/to/faster_rcnn_model.config \

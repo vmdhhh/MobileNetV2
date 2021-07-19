@@ -13,12 +13,12 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.meta_architectures.rfcn_meta_arch."""
+"""Tests for object_detection.meta_architectures.rfcn_meta_arch."""
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.meta_architectures import faster_rcnn_meta_arch_test_lib
-from research.object_detection.meta_architectures import rfcn_meta_arch
+from object_detection.meta_architectures import faster_rcnn_meta_arch_test_lib
+from object_detection.meta_architectures import rfcn_meta_arch
 
 
 class RFCNMetaArchTest(

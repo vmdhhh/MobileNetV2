@@ -33,10 +33,10 @@ from __future__ import print_function
 import abc
 import six
 import tensorflow.compat.v1 as tf
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.utils import ops
-from research.object_detection.utils import shape_utils
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.utils import ops
+from object_detection.utils import shape_utils
 
 
 class Loss(six.with_metaclass(abc.ABCMeta, object)):

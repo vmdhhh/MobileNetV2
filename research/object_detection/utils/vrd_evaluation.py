@@ -38,10 +38,10 @@ import numpy as np
 import six
 from six.moves import range
 
-from research.object_detection.core import standard_fields
-from research.object_detection.utils import metrics
-from research.object_detection.utils import research.object_detection_evaluation
-from research.object_detection.utils import per_image_vrd_evaluation
+from object_detection.core import standard_fields
+from object_detection.utils import metrics
+from object_detection.utils import object_detection_evaluation
+from object_detection.utils import per_image_vrd_evaluation
 
 # Below standard input numpy datatypes are defined:
 # box_data_type - datatype of the groundtruth visual relations box annotations;
@@ -58,7 +58,7 @@ label_data_type = np.dtype([('subject', 'i4'), ('object', 'i4'), ('relation',
                                                                   'i4')])
 
 
-class VRDDetectionEvaluator(research.object_detection_evaluation.DetectionEvaluator):
+class VRDDetectionEvaluator(object_detection_evaluation.DetectionEvaluator):
   """A class to evaluate VRD detections.
 
   This class serves as a base class for VRD evaluation in two settings:

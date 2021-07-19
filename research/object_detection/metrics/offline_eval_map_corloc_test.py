@@ -16,7 +16,7 @@
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.metrics import offline_eval_map_corloc as offline_eval
+from object_detection.metrics import offline_eval_map_corloc as offline_eval
 
 
 class OfflineEvalMapCorlocTest(tf.test.TestCase):

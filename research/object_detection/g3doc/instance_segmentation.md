@@ -62,10 +62,10 @@ To see an example tf-records with mask labels, see the examples under the
 We provide four instance segmentation config files that you can use to train
 your own models:
 
-1.  <a href="https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/mask_rcnn_inception_resnet_v2_atrous_coco.config" target=_blank>mask_rcnn_inception_resnet_v2_atrous_coco</a>
-1.  <a href="https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/mask_rcnn_resnet101_atrous_coco.config" target=_blank>mask_rcnn_resnet101_atrous_coco</a>
-1.  <a href="https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/mask_rcnn_resnet50_atrous_coco.config" target=_blank>mask_rcnn_resnet50_atrous_coco</a>
-1.  <a href="https://github.com/tensorflow/models/blob/master/research/research.object_detection/samples/configs/mask_rcnn_inception_v2_coco.config" target=_blank>mask_rcnn_inception_v2_coco</a>
+1.  <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/mask_rcnn_inception_resnet_v2_atrous_coco.config" target=_blank>mask_rcnn_inception_resnet_v2_atrous_coco</a>
+1.  <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/mask_rcnn_resnet101_atrous_coco.config" target=_blank>mask_rcnn_resnet101_atrous_coco</a>
+1.  <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/mask_rcnn_resnet50_atrous_coco.config" target=_blank>mask_rcnn_resnet50_atrous_coco</a>
+1.  <a href="https://github.com/tensorflow/models/blob/master/research/object_detection/samples/configs/mask_rcnn_inception_v2_coco.config" target=_blank>mask_rcnn_inception_v2_coco</a>
 
 For more details see the [detection model zoo](tf1_detection_zoo.md).
 

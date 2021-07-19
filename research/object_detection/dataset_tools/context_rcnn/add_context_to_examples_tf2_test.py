@@ -27,10 +27,10 @@ import numpy as np
 import six
 import tensorflow as tf
 
-from research.object_detection.utils import tf_version
+from object_detection.utils import tf_version
 
 if tf_version.is_tf2():
-  from research.object_detection.dataset_tools.context_rcnn import add_context_to_examples  # pylint:disable=g-import-not-at-top
+  from object_detection.dataset_tools.context_rcnn import add_context_to_examples  # pylint:disable=g-import-not-at-top
 
 try:
   import apache_beam as beam  # pylint:disable=g-import-not-at-top

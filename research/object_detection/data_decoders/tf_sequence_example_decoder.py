@@ -22,9 +22,9 @@ from six.moves import zip
 import tensorflow.compat.v1 as tf
 from tf_slim import tfexample_decoder as slim_example_decoder
 
-from research.object_detection.core import data_decoder
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.utils import label_map_util
+from object_detection.core import data_decoder
+from object_detection.core import standard_fields as fields
+from object_detection.utils import label_map_util
 
 # pylint: disable=g-import-not-at-top
 try:
@@ -130,7 +130,7 @@ class TfSequenceExampleDecoder(data_decoder.DataDecoder):
 
     Args:
       label_map_proto_file: a file path to a
-        research.object_detection.protos.StringIntLabelMap proto. The
+        object_detection.protos.StringIntLabelMap proto. The
         label map will be used to map IDs of 'region/label/string'.
         It is assumed that 'region/label/string' will be in the data.
       load_context_features: Whether to load information from context_features,

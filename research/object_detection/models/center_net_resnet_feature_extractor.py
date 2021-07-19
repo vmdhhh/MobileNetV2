@@ -20,7 +20,7 @@
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.meta_architectures.center_net_meta_arch import CenterNetFeatureExtractor
+from object_detection.meta_architectures.center_net_meta_arch import CenterNetFeatureExtractor
 
 
 class CenterNetResnetFeatureExtractor(CenterNetFeatureExtractor):

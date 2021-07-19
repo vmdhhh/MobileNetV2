@@ -22,11 +22,11 @@ Based on PNASNet ImageNet model: https://arxiv.org/abs/1712.00559
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
 
-from research.object_detection.meta_architectures import ssd_meta_arch
-from research.object_detection.models import feature_map_generators
-from research.object_detection.utils import context_manager
-from research.object_detection.utils import ops
-from research.object_detection.utils import variables_helper
+from object_detection.meta_architectures import ssd_meta_arch
+from object_detection.models import feature_map_generators
+from object_detection.utils import context_manager
+from object_detection.utils import ops
+from object_detection.utils import variables_helper
 try:
   from nets.nasnet import pnasnet  # pylint: disable=g-import-not-at-top
 except:  # pylint: disable=bare-except

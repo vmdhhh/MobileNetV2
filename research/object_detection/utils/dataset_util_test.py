@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.utils.dataset_util."""
+"""Tests for object_detection.utils.dataset_util."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -22,7 +22,7 @@ from __future__ import print_function
 import os
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import dataset_util
+from object_detection.utils import dataset_util
 
 
 class DatasetUtilTest(tf.test.TestCase):

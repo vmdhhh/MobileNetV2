@@ -1,9 +1,9 @@
 syntax = "proto2";
 
-package research.object_detection.protos;
+package object_detection.protos;
 
-import "research.object_detection/protos/optimizer.proto";
-import "research.object_detection/protos/preprocessor.proto";
+import "object_detection/protos/optimizer.proto";
+import "object_detection/protos/preprocessor.proto";
 
 
 enum CheckpointVersion {

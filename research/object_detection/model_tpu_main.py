@@ -26,7 +26,7 @@ from absl import flags
 import tensorflow.compat.v1 as tf
 
 
-from research.object_detection import model_lib
+from object_detection import model_lib
 
 tf.flags.DEFINE_bool('use_tpu', True, 'Use TPUs rather than plain CPUs')
 

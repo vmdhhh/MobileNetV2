@@ -20,16 +20,16 @@ models.
 import abc
 import tensorflow.compat.v1 as tf
 from tensorflow.python.util.deprecation import deprecated_args
-from research.object_detection.core import box_list
-from research.object_detection.core import box_list_ops
-from research.object_detection.core import matcher
-from research.object_detection.core import model
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.core import target_assigner
-from research.object_detection.utils import ops
-from research.object_detection.utils import shape_utils
-from research.object_detection.utils import variables_helper
-from research.object_detection.utils import visualization_utils
+from object_detection.core import box_list
+from object_detection.core import box_list_ops
+from object_detection.core import matcher
+from object_detection.core import model
+from object_detection.core import standard_fields as fields
+from object_detection.core import target_assigner
+from object_detection.utils import ops
+from object_detection.utils import shape_utils
+from object_detection.utils import variables_helper
+from object_detection.utils import visualization_utils
 
 
 # pylint: disable=g-import-not-at-top
@@ -319,8 +319,8 @@ class SSDMetaArch(model.DetectionModel):
       score_conversion_fn: callable elementwise nonlinearity (that takes tensors
         as inputs and returns tensors).  This is usually used to convert logits
         to probabilities.
-      classification_loss: an research.object_detection.core.losses.Loss object.
-      localization_loss: a research.object_detection.core.losses.Loss object.
+      classification_loss: an object_detection.core.losses.Loss object.
+      localization_loss: a object_detection.core.losses.Loss object.
       classification_loss_weight: float
       localization_loss_weight: float
       normalize_loss_by_num_matches: boolean
@@ -355,7 +355,7 @@ class SSDMetaArch(model.DetectionModel):
         as inputs and return foreground_weights, background_weights. See
         expected_classification_loss_by_expected_sampling and
         expected_classification_loss_by_reweighting_unmatched_anchors in
-        third_party/tensorflow_models/research.object_detection/utils/ops.py as examples.
+        third_party/tensorflow_models/object_detection/utils/ops.py as examples.
       use_confidences_as_targets: Whether to use groundtruth_condifences field
         to assign the targets.
       implicit_example_weight: a float number that specifies the weight used

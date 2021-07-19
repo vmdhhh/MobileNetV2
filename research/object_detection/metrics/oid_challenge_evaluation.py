@@ -17,7 +17,7 @@ r"""Runs evaluation using OpenImages groundtruth and predictions.
 Uses Open Images Challenge 2018, 2019 metrics
 
 Example usage:
-python models/research/research.object_detection/metrics/oid_od_challenge_evaluation.py \
+python models/research/object_detection/metrics/oid_od_challenge_evaluation.py \
     --input_annotations_boxes=/path/to/input/annotations-human-bbox.csv \
     --input_annotations_labels=/path/to/input/annotations-label.csv \
     --input_class_labelmap=/path/to/input/class_labelmap.pbtxt \
@@ -47,10 +47,10 @@ from absl import flags
 import pandas as pd
 from google.protobuf import text_format
 
-from research.object_detection.metrics import io_utils
-from research.object_detection.metrics import oid_challenge_evaluation_utils as utils
-from research.object_detection.protos import string_int_label_map_pb2
-from research.object_detection.utils import research.object_detection_evaluation
+from object_detection.metrics import io_utils
+from object_detection.metrics import oid_challenge_evaluation_utils as utils
+from object_detection.protos import string_int_label_map_pb2
+from object_detection.utils import object_detection_evaluation
 
 flags.DEFINE_string('input_annotations_boxes', None,
                     'File with groundtruth boxes annotations.')
@@ -119,7 +119,7 @@ def main(unused_argv):
 
   class_label_map, categories = _load_labelmap(FLAGS.input_class_labelmap)
   challenge_evaluator = (
-      research.object_detection_evaluation.OpenImagesChallengeEvaluator(
+      object_detection_evaluation.OpenImagesChallengeEvaluator(
           categories, evaluate_masks=is_instance_segmentation_eval))
 
   all_predictions = pd.read_csv(FLAGS.input_predictions)

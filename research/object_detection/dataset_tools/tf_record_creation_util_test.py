@@ -25,7 +25,7 @@ import six
 from six.moves import range
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.dataset_tools import tf_record_creation_util
+from object_detection.dataset_tools import tf_record_creation_util
 
 
 class OpenOutputTfrecordsTests(tf.test.TestCase):

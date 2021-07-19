@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Utils for colab tutorials located in research.object_detection/colab_tutorials/..."""
+"""Utils for colab tutorials located in object_detection/colab_tutorials/..."""
 import base64
 import io
 import json

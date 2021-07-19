@@ -13,7 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""Tests for research.object_detection.utils.category_util."""
+"""Tests for object_detection.utils.category_util."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -23,7 +23,7 @@ import os
 
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import category_util
+from object_detection.utils import category_util
 
 
 class EvalUtilTest(tf.test.TestCase):

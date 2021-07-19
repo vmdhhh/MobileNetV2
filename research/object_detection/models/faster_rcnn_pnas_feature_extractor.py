@@ -27,8 +27,8 @@ from six.moves import range
 import tensorflow.compat.v1 as tf
 import tf_slim as slim
 
-from research.object_detection.meta_architectures import faster_rcnn_meta_arch
-from research.object_detection.utils import variables_helper
+from object_detection.meta_architectures import faster_rcnn_meta_arch
+from object_detection.utils import variables_helper
 from nets.nasnet import nasnet_utils
 
 try:

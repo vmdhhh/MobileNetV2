@@ -14,11 +14,11 @@ TensorFlow Lite uses many techniques for this such as quantized kernels that
 allow smaller and faster (fixed-point math) models.
 
 This document shows how eligible models from the
-[TF2 Detection zoo](https://github.com/tensorflow/models/blob/master/research/research.object_detection/g3doc/tf2_detection_zoo.md)
+[TF2 Detection zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md)
 can be converted for inference with TFLite. See this Colab tutorial for a
 runnable tutorial that walks you through the steps explained in this document:
 
-<a target="_blank" href="https://colab.research.google.com/github/tensorflow/models/blob/master/research/research.object_detection/colab_tutorials/convert_odt_model_to_TFLite.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run
+<a target="_blank" href="https://colab.research.google.com/github/tensorflow/models/blob/master/research/object_detection/colab_tutorials/convert_odt_model_to_TFLite.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run
 in Google Colab</a>
 
 For an end-to-end Python guide on how to fine-tune an SSD model for mobile
@@ -27,7 +27,7 @@ inference, look at
 
 **NOTE:** TFLite currently only supports **SSD Architectures** (excluding
 EfficientDet) for boxes-based detection. Support for EfficientDet is provided
-via the [TFLite Model Maker](https://www.tensorflow.org/lite/tutorials/model_maker_research.object_detection)
+via the [TFLite Model Maker](https://www.tensorflow.org/lite/tutorials/model_maker_object_detection)
 library.
 
 The output model has the following inputs & outputs:
@@ -37,7 +37,7 @@ One input:
   image: a float32 tensor of shape[1, height, width, 3] containing the
   *normalized* input image.
   NOTE: See the `preprocess` function defined in the feature extractor class
-  in the research.object_detection/models directory.
+  in the object_detection/models directory.
 
 Four Outputs:
   detection_boxes: a float32 tensor of shape [1, num_boxes, 4] with box
@@ -61,7 +61,7 @@ To use the script:
 
 ```bash
 # From the tensorflow/models/research/ directory
-python research.object_detection/export_tflite_graph_tf2.py \
+python object_detection/export_tflite_graph_tf2.py \
     --pipeline_config_path path/to/ssd_model/pipeline.config \
     --trained_checkpoint_dir path/to/ssd_model/checkpoint \
     --output_directory path/to/exported_model_directory
@@ -135,26 +135,26 @@ To test our TensorFlow Lite model on device, we will use Android Studio to build
 and run the TensorFlow Lite detection example with the new model. The example is
 found in the
 [TensorFlow examples repository](https://github.com/tensorflow/examples) under
-`/lite/examples/research.object_detection`. The example can be built with
+`/lite/examples/object_detection`. The example can be built with
 [Android Studio](https://developer.android.com/studio/index.html), and requires
 the
 [Android SDK with build tools](https://developer.android.com/tools/revisions/build-tools.html)
 that support API >= 21. Additional details are available on the
-[TensorFlow Lite example page](https://github.com/tensorflow/examples/tree/master/lite/examples/research.object_detection/android).
+[TensorFlow Lite example page](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android).
 
 Next we need to point the app to our new detect.tflite file and give it the
 names of our new labels. Specifically, we will copy our TensorFlow Lite
 model with metadata to the app assets directory with the following command:
 
 ```shell
-mkdir $TF_EXAMPLES/lite/examples/research.object_detection/android/app/src/main/assets
+mkdir $TF_EXAMPLES/lite/examples/object_detection/android/app/src/main/assets
 cp /tmp/tflite/detect.tflite \
-  $TF_EXAMPLES/lite/examples/research.object_detection/android/app/src/main/assets
+  $TF_EXAMPLES/lite/examples/object_detection/android/app/src/main/assets
 ```
 
 We will now edit the gradle build file to use these assets. First, open the
 `build.gradle` file
-`$TF_EXAMPLES/lite/examples/research.object_detection/android/app/build.gradle`. Comment
+`$TF_EXAMPLES/lite/examples/object_detection/android/app/build.gradle`. Comment
 out the model download script to avoid your assets being overwritten:
 
 ```shell
@@ -164,7 +164,7 @@ out the model download script to avoid your assets being overwritten:
 If your model is named `detect.tflite`, the example will use it automatically as
 long as they've been properly copied into the base assets directory. If you need
 to use a custom path or filename, open up the
-$TF_EXAMPLES/lite/examples/research.object_detection/android/app/src/main/java/org/tensorflow/demo/DetectorActivity.java
+$TF_EXAMPLES/lite/examples/object_detection/android/app/src/main/java/org/tensorflow/demo/DetectorActivity.java
 file in a text editor and find the definition of TF_OD_API_MODEL_FILE. Update
 this path to point to your new model file.
 

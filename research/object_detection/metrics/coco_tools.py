@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Wrappers for third party pycocotools to be used within research.object_detection.
+"""Wrappers for third party pycocotools to be used within object_detection.
 
 Note that nothing in this file is tensorflow related and thus cannot
 be called directly as a slim metric, for example.
@@ -57,7 +57,7 @@ from six.moves import range
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.utils import json_utils
+from object_detection.utils import json_utils
 
 
 class COCOWrapper(coco.COCO):

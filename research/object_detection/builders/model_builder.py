@@ -20,31 +20,31 @@ import sys
 
 from absl import logging
 
-from research.object_detection.builders import anchor_generator_builder
-from research.object_detection.builders import box_coder_builder
-from research.object_detection.builders import box_predictor_builder
-from research.object_detection.builders import hyperparams_builder
-from research.object_detection.builders import image_resizer_builder
-from research.object_detection.builders import losses_builder
-from research.object_detection.builders import matcher_builder
-from research.object_detection.builders import post_processing_builder
-from research.object_detection.builders import region_similarity_calculator_builder as sim_calc
-from research.object_detection.core import balanced_positive_negative_sampler as sampler
-from research.object_detection.core import post_processing
-from research.object_detection.core import target_assigner
-from research.object_detection.meta_architectures import center_net_meta_arch
-from research.object_detection.meta_architectures import context_rcnn_meta_arch
-from research.object_detection.meta_architectures import deepmac_meta_arch
-from research.object_detection.meta_architectures import faster_rcnn_meta_arch
-from research.object_detection.meta_architectures import rfcn_meta_arch
-from research.object_detection.meta_architectures import ssd_meta_arch
-from research.object_detection.predictors.heads import mask_head
-from research.object_detection.protos import losses_pb2
-from research.object_detection.protos import model_pb2
-from research.object_detection.utils import label_map_util
-from research.object_detection.utils import ops
-from research.object_detection.utils import spatial_transform_ops as spatial_ops
-from research.object_detection.utils import tf_version
+from object_detection.builders import anchor_generator_builder
+from object_detection.builders import box_coder_builder
+from object_detection.builders import box_predictor_builder
+from object_detection.builders import hyperparams_builder
+from object_detection.builders import image_resizer_builder
+from object_detection.builders import losses_builder
+from object_detection.builders import matcher_builder
+from object_detection.builders import post_processing_builder
+from object_detection.builders import region_similarity_calculator_builder as sim_calc
+from object_detection.core import balanced_positive_negative_sampler as sampler
+from object_detection.core import post_processing
+from object_detection.core import target_assigner
+from object_detection.meta_architectures import center_net_meta_arch
+from object_detection.meta_architectures import context_rcnn_meta_arch
+from object_detection.meta_architectures import deepmac_meta_arch
+from object_detection.meta_architectures import faster_rcnn_meta_arch
+from object_detection.meta_architectures import rfcn_meta_arch
+from object_detection.meta_architectures import ssd_meta_arch
+from object_detection.predictors.heads import mask_head
+from object_detection.protos import losses_pb2
+from object_detection.protos import model_pb2
+from object_detection.utils import label_map_util
+from object_detection.utils import ops
+from object_detection.utils import spatial_transform_ops as spatial_ops
+from object_detection.utils import tf_version
 
 ## Feature Extractors for TF
 ## This section conditionally imports different feature extractors based on the
@@ -52,49 +52,49 @@ from research.object_detection.utils import tf_version
 ##
 # pylint: disable=g-import-not-at-top
 if tf_version.is_tf2():
-  from research.object_detection.models import center_net_hourglass_feature_extractor
-  from research.object_detection.models import center_net_mobilenet_v2_feature_extractor
-  from research.object_detection.models import center_net_mobilenet_v2_fpn_feature_extractor
-  from research.object_detection.models import center_net_resnet_feature_extractor
-  from research.object_detection.models import center_net_resnet_v1_fpn_feature_extractor
-  from research.object_detection.models import faster_rcnn_inception_resnet_v2_keras_feature_extractor as frcnn_inc_res_keras
-  from research.object_detection.models import faster_rcnn_resnet_keras_feature_extractor as frcnn_resnet_keras
-  from research.object_detection.models import ssd_resnet_v1_fpn_keras_feature_extractor as ssd_resnet_v1_fpn_keras
-  from research.object_detection.models import faster_rcnn_resnet_v1_fpn_keras_feature_extractor as frcnn_resnet_fpn_keras
-  from research.object_detection.models.ssd_mobilenet_v1_fpn_keras_feature_extractor import SSDMobileNetV1FpnKerasFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v1_keras_feature_extractor import SSDMobileNetV1KerasFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v2_fpn_keras_feature_extractor import SSDMobileNetV2FpnKerasFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v2_keras_feature_extractor import SSDMobileNetV2KerasFeatureExtractor
-  from research.object_detection.predictors import rfcn_keras_box_predictor
+  from object_detection.models import center_net_hourglass_feature_extractor
+  from object_detection.models import center_net_mobilenet_v2_feature_extractor
+  from object_detection.models import center_net_mobilenet_v2_fpn_feature_extractor
+  from object_detection.models import center_net_resnet_feature_extractor
+  from object_detection.models import center_net_resnet_v1_fpn_feature_extractor
+  from object_detection.models import faster_rcnn_inception_resnet_v2_keras_feature_extractor as frcnn_inc_res_keras
+  from object_detection.models import faster_rcnn_resnet_keras_feature_extractor as frcnn_resnet_keras
+  from object_detection.models import ssd_resnet_v1_fpn_keras_feature_extractor as ssd_resnet_v1_fpn_keras
+  from object_detection.models import faster_rcnn_resnet_v1_fpn_keras_feature_extractor as frcnn_resnet_fpn_keras
+  from object_detection.models.ssd_mobilenet_v1_fpn_keras_feature_extractor import SSDMobileNetV1FpnKerasFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v1_keras_feature_extractor import SSDMobileNetV1KerasFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v2_fpn_keras_feature_extractor import SSDMobileNetV2FpnKerasFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v2_keras_feature_extractor import SSDMobileNetV2KerasFeatureExtractor
+  from object_detection.predictors import rfcn_keras_box_predictor
   if sys.version_info[0] >= 3:
-    from research.object_detection.models import ssd_efficientnet_bifpn_feature_extractor as ssd_efficientnet_bifpn
+    from object_detection.models import ssd_efficientnet_bifpn_feature_extractor as ssd_efficientnet_bifpn
 
 if tf_version.is_tf1():
-  from research.object_detection.models import faster_rcnn_inception_resnet_v2_feature_extractor as frcnn_inc_res
-  from research.object_detection.models import faster_rcnn_inception_v2_feature_extractor as frcnn_inc_v2
-  from research.object_detection.models import faster_rcnn_nas_feature_extractor as frcnn_nas
-  from research.object_detection.models import faster_rcnn_pnas_feature_extractor as frcnn_pnas
-  from research.object_detection.models import faster_rcnn_resnet_v1_feature_extractor as frcnn_resnet_v1
-  from research.object_detection.models import ssd_resnet_v1_fpn_feature_extractor as ssd_resnet_v1_fpn
-  from research.object_detection.models import ssd_resnet_v1_ppn_feature_extractor as ssd_resnet_v1_ppn
-  from research.object_detection.models.embedded_ssd_mobilenet_v1_feature_extractor import EmbeddedSSDMobileNetV1FeatureExtractor
-  from research.object_detection.models.ssd_inception_v2_feature_extractor import SSDInceptionV2FeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v2_fpn_feature_extractor import SSDMobileNetV2FpnFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v2_mnasfpn_feature_extractor import SSDMobileNetV2MnasFPNFeatureExtractor
-  from research.object_detection.models.ssd_inception_v3_feature_extractor import SSDInceptionV3FeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_edgetpu_feature_extractor import SSDMobileNetEdgeTPUFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v1_feature_extractor import SSDMobileNetV1FeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v1_fpn_feature_extractor import SSDMobileNetV1FpnFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v1_ppn_feature_extractor import SSDMobileNetV1PpnFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v2_feature_extractor import SSDMobileNetV2FeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v3_feature_extractor import SSDMobileNetV3LargeFeatureExtractor
-  from research.object_detection.models.ssd_mobilenet_v3_feature_extractor import SSDMobileNetV3SmallFeatureExtractor
-  from research.object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetCPUFeatureExtractor
-  from research.object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetDSPFeatureExtractor
-  from research.object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetEdgeTPUFeatureExtractor
-  from research.object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetGPUFeatureExtractor
-  from research.object_detection.models.ssd_pnasnet_feature_extractor import SSDPNASNetFeatureExtractor
-  from research.object_detection.predictors import rfcn_box_predictor
+  from object_detection.models import faster_rcnn_inception_resnet_v2_feature_extractor as frcnn_inc_res
+  from object_detection.models import faster_rcnn_inception_v2_feature_extractor as frcnn_inc_v2
+  from object_detection.models import faster_rcnn_nas_feature_extractor as frcnn_nas
+  from object_detection.models import faster_rcnn_pnas_feature_extractor as frcnn_pnas
+  from object_detection.models import faster_rcnn_resnet_v1_feature_extractor as frcnn_resnet_v1
+  from object_detection.models import ssd_resnet_v1_fpn_feature_extractor as ssd_resnet_v1_fpn
+  from object_detection.models import ssd_resnet_v1_ppn_feature_extractor as ssd_resnet_v1_ppn
+  from object_detection.models.embedded_ssd_mobilenet_v1_feature_extractor import EmbeddedSSDMobileNetV1FeatureExtractor
+  from object_detection.models.ssd_inception_v2_feature_extractor import SSDInceptionV2FeatureExtractor
+  from object_detection.models.ssd_mobilenet_v2_fpn_feature_extractor import SSDMobileNetV2FpnFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v2_mnasfpn_feature_extractor import SSDMobileNetV2MnasFPNFeatureExtractor
+  from object_detection.models.ssd_inception_v3_feature_extractor import SSDInceptionV3FeatureExtractor
+  from object_detection.models.ssd_mobilenet_edgetpu_feature_extractor import SSDMobileNetEdgeTPUFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v1_feature_extractor import SSDMobileNetV1FeatureExtractor
+  from object_detection.models.ssd_mobilenet_v1_fpn_feature_extractor import SSDMobileNetV1FpnFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v1_ppn_feature_extractor import SSDMobileNetV1PpnFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v2_feature_extractor import SSDMobileNetV2FeatureExtractor
+  from object_detection.models.ssd_mobilenet_v3_feature_extractor import SSDMobileNetV3LargeFeatureExtractor
+  from object_detection.models.ssd_mobilenet_v3_feature_extractor import SSDMobileNetV3SmallFeatureExtractor
+  from object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetCPUFeatureExtractor
+  from object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetDSPFeatureExtractor
+  from object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetEdgeTPUFeatureExtractor
+  from object_detection.models.ssd_mobiledet_feature_extractor import SSDMobileDetGPUFeatureExtractor
+  from object_detection.models.ssd_pnasnet_feature_extractor import SSDPNASNetFeatureExtractor
+  from object_detection.predictors import rfcn_box_predictor
 # pylint: enable=g-import-not-at-top
 
 if tf_version.is_tf2():
@@ -919,7 +919,7 @@ def keypoint_proto_to_params(kp_config, keypoint_map_dict):
       rescoring_threshold=kp_config.rescoring_threshold)
 
 
-def research.object_detection_proto_to_params(od_config):
+def object_detection_proto_to_params(od_config):
   """Converts CenterNet.ObjectDetection proto to parameter namedtuple."""
   loss = losses_pb2.Loss()
   # Add dummy classification loss to avoid the loss_builder throwing error.
@@ -1079,10 +1079,10 @@ def _build_center_net_model(center_net_config, is_training, add_summaries):
   object_center_params = object_center_proto_to_params(
       center_net_config.object_center_params)
 
-  research.object_detection_params = None
-  if center_net_config.HasField('research.object_detection_task'):
-    research.object_detection_params = research.object_detection_proto_to_params(
-        center_net_config.research.object_detection_task)
+  object_detection_params = None
+  if center_net_config.HasField('object_detection_task'):
+    object_detection_params = object_detection_proto_to_params(
+        center_net_config.object_detection_task)
 
   if center_net_config.HasField('deepmac_mask_estimation'):
     logging.warn(('Building experimental DeepMAC meta-arch.'
@@ -1096,7 +1096,7 @@ def _build_center_net_model(center_net_config, is_training, add_summaries):
         feature_extractor=feature_extractor,
         image_resizer_fn=image_resizer_fn,
         object_center_params=object_center_params,
-        research.object_detection_params=research.object_detection_params,
+        object_detection_params=object_detection_params,
         deepmac_params=deepmac_params)
 
   keypoint_params_dict = None
@@ -1151,7 +1151,7 @@ def _build_center_net_model(center_net_config, is_training, add_summaries):
       feature_extractor=feature_extractor,
       image_resizer_fn=image_resizer_fn,
       object_center_params=object_center_params,
-      research.object_detection_params=research.object_detection_params,
+      object_detection_params=object_detection_params,
       keypoint_params_dict=keypoint_params_dict,
       mask_params=mask_params,
       densepose_params=densepose_params,

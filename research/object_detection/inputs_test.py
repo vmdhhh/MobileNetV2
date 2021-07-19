@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Tests for research.object_detection.tflearn.inputs."""
+"""Tests for object_detection.tflearn.inputs."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -27,13 +27,13 @@ import numpy as np
 import six
 import tensorflow.compat.v1 as tf
 
-from research.object_detection import inputs
-from research.object_detection.core import preprocessor
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.utils import config_util
-from research.object_detection.utils import test_case
-from research.object_detection.utils import test_utils
-from research.object_detection.utils import tf_version
+from object_detection import inputs
+from object_detection.core import preprocessor
+from object_detection.core import standard_fields as fields
+from object_detection.utils import config_util
+from object_detection.utils import test_case
+from object_detection.utils import test_utils
+from object_detection.utils import tf_version
 
 if six.PY2:
   import mock  # pylint: disable=g-import-not-at-top

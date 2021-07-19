@@ -26,9 +26,9 @@ import numpy as np
 from six.moves import zip
 import tensorflow.compat.v1 as tf
 
-from research.object_detection.core import standard_fields as fields
-from research.object_detection.metrics import lvis_tools
-from research.object_detection.utils import research.object_detection_evaluation
+from object_detection.core import standard_fields as fields
+from object_detection.metrics import lvis_tools
+from object_detection.utils import object_detection_evaluation
 
 
 def convert_masks_to_binary(masks):
@@ -36,7 +36,7 @@ def convert_masks_to_binary(masks):
   return (masks > 0).astype(np.uint8)
 
 
-class LVISMaskEvaluator(research.object_detection_evaluation.DetectionEvaluator):
+class LVISMaskEvaluator(object_detection_evaluation.DetectionEvaluator):
   """Class to evaluate LVIS mask metrics."""
 
   def __init__(self,

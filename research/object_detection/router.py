@@ -1,5 +1,5 @@
 from fastapi import UploadFile, File, APIRouter
-from research.object_detection.deployment_script import detect
+from object_detection.deployment_script import detect
 from fastapi.responses import FileResponse
 import shutil
 
@@ -12,4 +12,3 @@ async def root(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, buffer)
     image = detect(image_name=file.filename)
     return FileResponse(image)
-
